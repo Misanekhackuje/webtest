@@ -2,9 +2,140 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Moje stránka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardware Hub</title>
+  <style>
+    /* Reset a moderní font */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(0,0,0,0.6);
+      padding: 1.5rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+    }
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: #00e6e6;
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #f5f5f5;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00e6e6;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 70vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #00e6e6;
+    }
+    .hero p {
+      max-width: 600px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s, background 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.1);
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: #00e6e6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.7);
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* Animace */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card { animation: fadeIn 0.8s ease forwards; }
+  </style>
 </head>
 <body>
-  <h1>Ahoj světe z GitHub Pages!</h1>
+  <header>
+    <h1>Hardware Hub</h1>
+    <nav>
+      <a href="#procesory">Procesory</a>
+      <a href="#gpu">Grafické karty</a>
+      <a href="#storage">Úložiště</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Moderní svět hardwaru</h2>
+    <p>Objevuj nejnovější technologie, komponenty a trendy v oblasti počítačového hardwaru. Od procesorů až po úložiště – vše na jednom místě.</p>
+  </section>
+
+  <section class="cards">
+    <div class="card" id="procesory">
+      <h3>⚡ Procesory</h3>
+      <p>Nejnovější generace CPU s vysokým výkonem a energetickou efektivitou.</p>
+    </div>
+    <div class="card" id="gpu">
+      <h3>🎮 Grafické karty</h3>
+      <p>Od herních monster po profesionální GPU pro AI a rendering.</p>
+    </div>
+    <div class="card" id="storage">
+      <h3>💾 Úložiště</h3>
+      <p>SSD, NVMe a cloudové technologie pro rychlý a spolehlivý přístup k datům.</p>
+    </div>
+    <div class="card" id="kontakt">
+      <h3>📩 Kontakt</h3>
+      <p>Napiš nám a zjisti více o nejnovějších trendech v hardwaru.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Hardware Hub – Vše o moderním hardwaru
+  </footer>
 </body>
 </html>
