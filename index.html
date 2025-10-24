@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rodina Juklových — Kronika, rodokmen, příběhy</title>
-  <meta name="description" content="Největší web o fiktivní rodině Juklových: rodokmen, kronika, příběhy, profily, místa, tradice, recepty, galerie a archiv.">
+  <title>Octavia I — Kompletní encyklopedie</title>
+  <meta name="description" content="Největší web o jedničkové Škodě Octavia: historie, technická data, výbavy, servis, tuning, katalog dílů, galerie a recenze.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
        Design systém & reset
     ----------------------- */
     :root {
+      /* Tmavý/světlý režim */
       --bg: #0f1216;
       --bg-elev: #141820;
       --text: #e7eaf0;
@@ -88,7 +89,9 @@
       width:36px; height:36px; border-radius:12px; background: linear-gradient(135deg, var(--brand), var(--accent));
       box-shadow: var(--shadow);
     }
-    nav ul { display:flex; flex-wrap: wrap; gap: 8px 18px; list-style:none; padding:0; margin:0; }
+    nav ul {
+      display:flex; flex-wrap: wrap; gap: 8px 18px; list-style:none; padding:0; margin:0;
+    }
     nav a {
       display:inline-block; padding:10px 14px; border-radius: 999px;
       background: color-mix(in oklab, var(--bg-elev), transparent 8%);
@@ -110,7 +113,9 @@
     /* -----------------------
        Hero
     ----------------------- */
-    .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; padding: 36px 0 24px; }
+    .hero {
+      display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; padding: 36px 0 24px;
+    }
     .hero-card {
       background: var(--bg-elev); border-radius: var(--radius); padding: 24px;
       box-shadow: var(--shadow); border: 1px solid color-mix(in oklab, var(--muted), transparent 80%);
@@ -131,7 +136,9 @@
     section { padding: 24px 0; }
     .section-head { display:flex; align-items:end; justify-content:space-between; margin-bottom: 12px; }
     .section-head h2 { font-size: var(--step-2); margin:0; }
-    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .grid {
+      display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px;
+    }
     .col-4 { grid-column: span 4; }
     .col-6 { grid-column: span 6; }
     .col-8 { grid-column: span 8; }
@@ -172,24 +179,16 @@
     tbody td { padding:12px; border-top: 1px solid color-mix(in oklab, var(--muted), transparent 85%); }
     tbody tr:hover { background: color-mix(in oklab, var(--bg-elev), transparent 6%); }
     .table-tools { display:flex; gap:12px; margin-bottom:8px; }
-    .input, input, select, textarea {
+    .input, input, select {
       padding:10px 12px; border-radius: 10px; border:1px solid color-mix(in oklab, var(--muted), transparent 70%);
       background: color-mix(in oklab, var(--bg-elev), transparent 6%); color:var(--text);
     }
 
     /* -----------------------
-       Timeline & badges
-    ----------------------- */
-    .timeline { position:relative; padding-left: 24px; }
-    .timeline::before { content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background: color-mix(in oklab, var(--muted), transparent 70%); }
-    .event { position:relative; margin: 12px 0; }
-    .event::before { content:""; position:absolute; left:-2px; top:6px; width:10px; height:10px; border-radius:50%; background: var(--brand); }
-
-    /* -----------------------
        Modal & toast
     ----------------------- */
     .modal-backdrop { position: fixed; inset:0; background: rgba(0,0,0,0.5); display:none; place-items:center; z-index: 1000; }
-    .modal { width: min(720px, 95vw); background: var(--bg-elev); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+    .modal { width: min(680px, 95vw); background: var(--bg-elev); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
     .modal.open { display:grid; }
     .toast {
       position: fixed; right: 18px; bottom: 18px; background: var(--bg-elev);
@@ -228,26 +227,26 @@
       <div class="logo">
         <span class="logo-badge" aria-hidden="true"></span>
         <div>
-          <div>Rodina Juklových</div>
-          <small class="muted">Kronika, rodokmen, příběhy</small>
+          <div>Octavia I</div>
+          <small class="muted">Kompletní encyklopedie</small>
         </div>
       </div>
       <nav aria-label="Hlavní navigace">
         <ul>
           <li><a href="#uvod">Úvod</a></li>
-          <li><a href="#rodokmen">Rodokmen</a></li>
-          <li><a href="#profily">Profily</a></li>
-          <li><a href="#kronika">Rodinná kronika</a></li>
-          <li><a href="#mista">Místa</a></li>
-          <li><a href="#tradice">Tradice</a></li>
-          <li><a href="#recepty">Recepty</a></li>
+          <li><a href="#technika">Technická data</a></li>
+          <li><a href="#vybava">Výbavy</a></li>
+          <li><a href="#historie">Historie</a></li>
+          <li><a href="#servis">Servis</a></li>
+          <li><a href="#tuning">Tuning</a></li>
+          <li><a href="#katalog">Katalog dílů</a></li>
           <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#archiv">Archiv</a></li>
+          <li><a href="#recenze">Recenze</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
       <div class="tools">
-        <button class="btn btn-outline" id="openModal">Přidat příběh</button>
+        <button class="btn btn-outline" id="openModal">Kontakt</button>
         <button class="theme-toggle" id="themeToggle" aria-label="Přepnout téma">🌓</button>
       </div>
     </div>
@@ -256,336 +255,320 @@
   <!-- Hero -->
   <section class="hero container" id="uvod">
     <div class="hero-card">
-      <h1>Rodina Juklových</h1>
-      <p class="lead">Fiktivní, ale bohatý rodinný příběh napříč generacemi: rodokmeny, vzpomínky, recepty, místa a tradice.</p>
+      <h1>Škoda Octavia I</h1>
+      <p class="lead">Nejpodrobnější zdroj o jedničkových oktávkách: motory, výbavy, servisní postupy, úpravy i příběhy majitelů.</p>
       <div class="chipset" role="list" aria-label="Rychlé štítky">
-        <span class="chip" role="listitem">Pardubice</span>
-        <span class="chip" role="listitem">1903–2025</span>
-        <span class="chip" role="listitem">Juklovi: Antonín, Klára, Marek, Ema</span>
-        <span class="chip" role="listitem">Kronika, archiv, rodokmen</span>
+        <span class="chip" role="listitem">1996–2010</span>
+        <span class="chip" role="listitem">Typ 1U</span>
+        <span class="chip" role="listitem">Sedan / Combi</span>
+        <span class="chip" role="listitem">RS 1.8T</span>
+        <span class="chip" role="listitem">TDI ALH</span>
       </div>
       <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="#rodokmen" class="btn">Prozkoumat rodokmen</a>
-        <a href="#kronika" class="btn btn-outline">Číst kroniku</a>
+        <a href="#technika" class="btn">Prozkoumat techniku</a>
+        <a href="#katalog" class="btn btn-outline">Katalog dílů</a>
       </div>
     </div>
     <div class="hero-card">
-      <img src="https://images.unsplash.com/photo-1519681393784-3cdf164c4e3d?q=80&w=1200&auto=format&fit=crop" alt="Rodinné album na stole">
-      <p class="muted">Ilustrační foto — nahraď vlastními snímky a skeny z archivu.</p>
+      <img src="https://images.unsplash.com/photo-1503376789871-12d0d6b6aa68?q=80&w=1200&auto=format&fit=crop" alt="Škoda Octavia I na silnici">
+      <p class="muted">Ilustrační foto — nahraď vlastním. Doporučeno AVIF/WebP, lazy-loading.</p>
     </div>
   </section>
 
-  <!-- Rodokmen -->
-  <section class="container" id="rodokmen">
+  <!-- Technická data -->
+  <section class="container" id="technika">
     <div class="section-head">
-      <h2>Rodokmen</h2>
+      <h2>Technická data a motorizace</h2>
       <div class="table-tools">
-        <input type="search" id="personSearch" placeholder="Hledat člena (např. Ema, Antonín)">
-        <select id="personGen">
-          <option value="">Generace (vše)</option>
-          <option value="1">1. generace</option>
-          <option value="2">2. generace</option>
-          <option value="3">3. generace</option>
-          <option value="4">4. generace</option>
+        <input type="search" id="engineSearch" placeholder="Hledat motor (např. ALH, 1.8T, 66kW)">
+        <select id="engineFuel">
+          <option value="">Palivo (vše)</option>
+          <option value="benzín">Benzín</option>
+          <option value="nafta">Nafta</option>
         </select>
-        <select id="personSort">
-          <option value="name">Podle jména</option>
-          <option value="birth">Podle narození</option>
-          <option value="role">Podle role</option>
+        <select id="engineSort">
+          <option value="power">Seřadit podle výkonu</option>
+          <option value="code">Podle kódu motoru</option>
+          <option value="year">Podle roku</option>
         </select>
       </div>
     </div>
 
-    <div class="tabs" role="tablist" aria-label="Zobrazení rodokmenu">
-      <button class="tab active" data-target="strom" role="tab" aria-selected="true">Strom</button>
-      <button class="tab" data-target="seznam" role="tab" aria-selected="false">Seznam</button>
-      <button class="tab" data-target="mapa" role="tab" aria-selected="false">Mapa rodiny</button>
+    <div class="tabs" role="tablist" aria-label="Kategorie motorů">
+      <button class="tab active" data-target="benziny" role="tab" aria-selected="true">Benzín</button>
+      <button class="tab" data-target="diesely" role="tab" aria-selected="false">Nafta</button>
+      <button class="tab" data-target="prevodovky" role="tab" aria-selected="false">Převodovky</button>
     </div>
 
     <div class="tab-panels">
-      <div class="panel active" id="strom" role="tabpanel" aria-label="Rodokmen strom">
+      <div class="panel active" id="benziny" role="tabpanel" aria-label="Benzínové motory">
         <div class="card">
-          <h3>Grafický strom (schematický)</h3>
-          <div class="grid">
-            <div class="card col-6">
-              <h4>1. generace</h4>
-              <ul>
-                <li><strong>Antonín Jukl (1903–1972):</strong> tesař, zakladatel rodu v Pardubicích.</li>
-                <li><strong>Klára Juklová (1907–1989):</strong> švadlena, držela rodinné tradice.</li>
-              </ul>
-            </div>
-            <div class="card col-6">
-              <h4>2. generace</h4>
-              <ul>
-                <li><strong>František Jukl (1932–2004):</strong> chemik, rád běhal přes lesy Kunětické hory.</li>
-                <li><strong>Marie Juklová (1934–2016):</strong> učitelka, kronikářka rodiny.</li>
-              </ul>
-            </div>
-            <div class="card col-6">
-              <h4>3. generace</h4>
-              <ul>
-                <li><strong>Marek Jukl (1961–):</strong> strojní inženýr, stavěl modely letadel.</li>
-                <li><strong>Eva Juklová (1965–):</strong> knihovnice, sbírala recepty a příběhy.</li>
-              </ul>
-            </div>
-            <div class="card col-6">
-              <h4>4. generace</h4>
-              <ul>
-                <li><strong>Ema Juklová (1995–):</strong> fotografka, dokumentuje rodinný život.</li>
-                <li><strong>Jakub Jukl (1998–):</strong> programátor, archivuje rodokmen digitalně.</li>
-              </ul>
-            </div>
-          </div>
-          <p class="muted">Pozn.: Pro skutečný strom lze použít SVG nebo canvas a data ve formátu JSON.</p>
-        </div>
-      </div>
-
-      <div class="panel" id="seznam" role="tabpanel" aria-label="Seznam členů">
-        <div class="card">
-          <h3>Seznam členů rodiny</h3>
-          <table id="tablePeople">
+          <h3>Benzínové motory</h3>
+          <table id="tableBenzin">
             <thead>
               <tr>
-                <th data-sort="name">Jméno</th>
-                <th data-sort="role">Role</th>
-                <th data-sort="gen">Generace</th>
-                <th data-sort="birth">Narození</th>
-                <th data-sort="place">Místo</th>
+                <th data-sort="code">Kód</th>
+                <th data-sort="disp">Objem</th>
+                <th data-sort="power">Výkon</th>
+                <th data-sort="torque">Toč. moment</th>
+                <th data-sort="year">Roky</th>
                 <th>Poznámka</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Antonín Jukl</td><td>Zakladatel</td><td>1</td><td>1903</td><td>Pardubice</td><td>Tesařství a dřevostavby</td></tr>
-              <tr><td>Klára Juklová</td><td>Matriarcha</td><td>1</td><td>1907</td><td>Pardubice</td><td>Šití krojů, svatební tradice</td></tr>
-              <tr><td>František Jukl</td><td>Syn</td><td>2</td><td>1932</td><td>Pardubice</td><td>Chemik, běžec</td></tr>
-              <tr><td>Marie Juklová</td><td>Dcera</td><td>2</td><td>1934</td><td>Pardubice</td><td>Kronikářka</td></tr>
-              <tr><td>Marek Jukl</td><td>Syn</td><td>3</td><td>1961</td><td>Pardubice</td><td>Inženýr, modelář</td></tr>
-              <tr><td>Eva Juklová</td><td>Dcera</td><td>3</td><td>1965</td><td>Pardubice</td><td>Knihovnice</td></tr>
-              <tr><td>Ema Juklová</td><td>Vnučka</td><td>4</td><td>1995</td><td>Praha</td><td>Fotografka</td></tr>
-              <tr><td>Jakub Jukl</td><td>Vnuk</td><td>4</td><td>1998</td><td>Brno</td><td>Programátor</td></tr>
-              <!-- Přidej desítky až stovky řádků pro „tisíce“ řádků webu -->
+              <!-- Přidej desítky/ stovky řádků pro „tisíce“ řádků webu -->
+              <tr>
+                <td>AGN</td><td>1.8</td><td>92 kW</td><td>170 Nm</td><td>1998–2000</td><td>Atmosférický, 20V</td>
+              </tr>
+              <tr>
+                <td>AJQ</td><td>1.8T</td><td>132 kW</td><td>235 Nm</td><td>2000–2002</td><td>RS, turbo</td>
+              </tr>
+              <tr>
+                <td>AUM</td><td>1.8T</td><td>110 kW</td><td>210 Nm</td><td>2001–2005</td><td>ME7.5</td>
+              </tr>
+              <tr>
+                <td>AQY</td><td>2.0</td><td>85 kW</td><td>172 Nm</td><td>1999–2005</td><td>Jednobodové vstřikování</td>
+              </tr>
+              <tr>
+                <td>AXP</td><td>1.4</td><td>55 kW</td><td>120 Nm</td><td>2001–2005</td><td>8V</td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <div class="panel" id="mapa" role="tabpanel" aria-label="Mapa rodiny">
+      <div class="panel" id="diesely" role="tabpanel" aria-label="Naftové motory">
         <div class="card">
-          <h3>Místa spojená s Juklovými</h3>
-          <p class="muted">Ukázkový embed mapy (nahraď vlastním):</p>
-          <div style="border-radius:12px; overflow:hidden;">
-            <iframe title="Mapa Pardubice" src="https://www.openstreetmap.org/export/embed.html?bbox=15.738%2C50.028%2C15.806%2C50.065&layer=mapnik" style="width:100%; height:360px; border:0;"></iframe>
-          </div>
+          <h3>Naftové motory</h3>
+          <table id="tableDiesel">
+            <thead>
+              <tr>
+                <th data-sort="code">Kód</th>
+                <th data-sort="disp">Objem</th>
+                <th data-sort="power">Výkon</th>
+                <th data-sort="torque">Toč. moment</th>
+                <th data-sort="year">Roky</th>
+                <th>Poznámka</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ALH</td><td>1.9 TDI</td><td>66 kW</td><td>200 Nm</td><td>1999–2003</td><td>Rot. čerpadlo, spolehlivý</td>
+              </tr>
+              <tr>
+                <td>AHF</td><td>1.9 TDI</td><td>81 kW</td><td>235 Nm</td><td>1998–2000</td><td>VNT turbo</td>
+              </tr>
+              <tr>
+                <td>ASV</td><td>1.9 TDI</td><td>81 kW</td><td>235 Nm</td><td>2000–2005</td><td>Vylepšený AHF</td>
+              </tr>
+              <tr>
+                <td>AGR</td><td>1.9 TDI</td><td>66 kW</td><td>210 Nm</td><td>1998–2000</td><td>Wastegate turbo</td>
+              </tr>
+              <tr>
+                <td>ALH</td><td>1.9 TDI</td><td>66 kW</td><td>210 Nm</td><td>2001–2003</td><td>EU3 varianta</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel" id="prevodovky" role="tabpanel" aria-label="Převodovky">
+        <div class="card">
+          <h3>Převodovky</h3>
+          <ul>
+            <li><strong>Manuál 5st:</strong> 02J/02K, různé stálé převody</li>
+            <li><strong>Manuál 6st (RS):</strong> 02M, pevnější hřídel, delší 6.</li>
+            <li><strong>Automat 4st:</strong> 01M (omezená spolehlivost, servis ATF)</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Profily -->
-  <section class="container" id="profily">
+  <!-- Výbavy -->
+  <section class="container" id="vybava">
     <div class="section-head">
-      <h2>Profily členů rodiny</h2>
+      <h2>Výbavové stupně</h2>
     </div>
     <div class="grid">
-      <div class="card col-6">
-        <h3>Antonín Jukl</h3>
-        <p><strong>Role:</strong> Zakladatel rodu</p>
-        <p><strong>Profil:</strong> Tesař, který po válce obnovoval dřevěné lávky u Labe. V dílně vychoval syna Františka k pečlivosti.</p>
-        <p><strong>Zajímavost:</strong> Každé jaro věnoval rodině ručně vyřezávanou houpací hračku.</p>
+      <div class="card col-4">
+        <h3>Ambiente</h3>
+        <ul>
+          <li><strong>Standard:</strong> el. okna, centrální zamykání</li>
+          <li><strong>Příplatky:</strong> klimatizace, rádio</li>
+        </ul>
       </div>
-      <div class="card col-6">
-        <h3>Klára Juklová</h3>
-        <p><strong>Role:</strong> Matriarcha</p>
-        <p><strong>Profil:</strong> Švadlena, která vedla rodinné oslavy, uchovávala recepty a svatební zvyky.</p>
-        <p><strong>Zajímavost:</strong> Ušila kroje pro polovinu sousedů v ulici.</p>
+      <div class="card col-4">
+        <h3>Elegance</h3>
+        <ul>
+          <li><strong>Standard:</strong> klima, litá kola, palubní PC</li>
+          <li><strong>Příplatky:</strong> xenony, kožené sedačky</li>
+        </ul>
       </div>
-      <div class="card col-6">
-        <h3>František Jukl</h3>
-        <p><strong>Role:</strong> Syn (2. generace)</p>
-        <p><strong>Profil:</strong> Chemik v pardubické továrně, rád běhal v okolí Kunětické hory a zapisoval rekordy do rodinné kroniky.</p>
-        <p><strong>Zajímavost:</strong> Sestrojil domácí destilační aparaturu na esenciální oleje z levandule.</p>
+      <div class="card col-4">
+        <h3>Laurin &amp; Klement</h3>
+        <ul>
+          <li><strong>Standard:</strong> kůže, dřevo, audio</li>
+          <li><strong>Příplatky:</strong> navigace, park. senzory</li>
+        </ul>
       </div>
-      <div class="card col-6">
-        <h3>Marie Juklová</h3>
-        <p><strong>Role:</strong> Dcera (2. generace)</p>
-        <p><strong>Profil:</strong> Učitelka češtiny, sběratelka místních pověstí, pečlivě vedla rodinný archiv a výstřižky.</p>
-        <p><strong>Zajímavost:</strong> Každý advent předčítala „Kroniku Labe“ dětem v sousedství.</p>
+      <div class="card col-4">
+        <h3>RS</h3>
+        <ul>
+          <li><strong>Motor:</strong> 1.8T 132 kW</li>
+          <li><strong>Brzdy:</strong> větší kotouče, červené třmeny</li>
+        </ul>
       </div>
-      <div class="card col-6">
-        <h3>Marek Jukl</h3>
-        <p><strong>Role:</strong> Syn (3. generace)</p>
-        <p><strong>Profil:</strong> Strojní inženýr, milovník modelářství. Postavil funkční větrný mlýn na zahradě.</p>
-        <p><strong>Zajímavost:</strong> Sbírá kovové odznaky ze závodů a výstav.</p>
-      </div>
-      <div class="card col-6">
-        <h3>Eva Juklová</h3>
-        <p><strong>Role:</strong> Dcera (3. generace)</p>
-        <p><strong>Profil:</strong> Knihovnice, zakladatelka rodinného čtenářského klubu.</p>
-        <p><strong>Zajímavost:</strong> Ilustrovala dětskou knížku „Labská voda“.</p>
-      </div>
-      <div class="card col-6">
-        <h3>Ema Juklová</h3>
-        <p><strong>Role:</strong> Vnučka (4. generace)</p>
-        <p><strong>Profil:</strong> Fotografka, dokumentuje tradice Juklových a vytváří rodinné fotoknihy.</p>
-        <p><strong>Zajímavost:</strong> Organizuje výstavy v komunitním centru.</p>
-      </div>
-      <div class="card col-6">
-        <h3>Jakub Jukl</h3>
-        <p><strong>Role:</strong> Vnuk (4. generace)</p>
-        <p><strong>Profil:</strong> Programátor, digitalizuje rodinný archiv, buduje tento web.</p>
-        <p><strong>Zajímavost:</strong> Vytvořil mapu rodinných fotografií s geotagy.</p>
+      <div class="card col-4">
+        <h3>Speciální edice</h3>
+        <ul>
+          <li><strong>Family:</strong> praktičnost, výbava</li>
+          <li><strong>Tour:</strong> pozdní série po O2</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Rodinná kronika -->
-  <section class="container" id="kronika">
+  <!-- Historie -->
+  <section class="container" id="historie">
     <div class="section-head">
-      <h2>Rodinná kronika</h2>
+      <h2>Historie a milníky</h2>
     </div>
     <div class="card">
       <div class="accordion">
         <div class="accordion-item">
-          <button class="accordion-button">1930–1950: Zrození dílny a první svatby</button>
+          <button class="accordion-button">1996–1999: Uvedení modelu</button>
           <div class="accordion-content">
-            V této době Antonín buduje tesařskou dílnu. Klára šije kroje, rodina se rozrůstá o první vnoučata. Každá svatba končí tancem u Labe.
+            První generace, platforma A4, základní motory, nástup kombi.
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">1960–1980: Běh přes Kunětickou horu</button>
+          <button class="accordion-button">2000: Facelift</button>
           <div class="accordion-content">
-            František zakládá běžeckou tradici. V neděli ráno rodina míří na výběh, Marek sbírá odznaky, Marie zapisuje rekordy do kroniky.
+            Úprava světel, interiéru, motorů (EU3), zlepšení bezpečnosti.
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">1990–2010: Digitalizace archivu</button>
+          <button class="accordion-button">2001–2005: RS a rozšíření</button>
           <div class="accordion-content">
-            Eva s Jakubem převádějí kroniky na digitální podobu, vznikají první rodinné weby. Ema začíná fotit výstavy a oslavy.
+            RS 1.8T, rozšířená nabídka TDI, nové výbavy.
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">2010–2025: Setkávání a výstavy</button>
+          <button class="accordion-button">2004–2010: Série Tour</button>
           <div class="accordion-content">
-            Každé léto se pořádá „Den Juklových“ s výstavou fotek, čtením příběhů a ochutnávkou rodinných receptů.
+            Pokračování výroby po nástupu O2, zjednodušené výbavy.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Místa -->
-  <section class="container" id="mista">
+  <!-- Servis -->
+  <section class="container" id="servis">
     <div class="section-head">
-      <h2>Rodinná místa</h2>
-      <div class="table-tools">
-        <input type="search" id="placeSearch" placeholder="Hledat místo (např. Labe, dílna)">
-        <select id="placeType">
-          <option value="">Typ (vše)</option>
-          <option value="domov">Domov</option>
-          <option value="prace">Práce</option>
-          <option value="priroda">Příroda</option>
-          <option value="kultura">Kultura</option>
-        </select>
-      </div>
-    </div>
-    <div class="card">
-      <table id="tablePlaces">
-        <thead>
-          <tr>
-            <th>Název</th>
-            <th>Typ</th>
-            <th>Město</th>
-            <th>Roky</th>
-            <th>Příběh</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Tesařská dílna</td><td>Práce</td><td>Pardubice</td><td>1931–1972</td><td>Antonínův základ rodiny</td></tr>
-          <tr><td>Nábřeží Labe</td><td>Příroda</td><td>Pardubice</td><td>1930–</td><td>Setkání, svatby, běhy</td></tr>
-          <tr><td>Knihovna</td><td>Kultura</td><td>Pardubice</td><td>1988–</td><td>Evino působiště</td></tr>
-          <tr><td>Kunětická hora</td><td>Příroda</td><td>Ráb</td><td>1960–</td><td>Rodinné běhy</td></tr>
-          <tr><td>Komunitní centrum</td><td>Kultura</td><td>Pardubice</td><td>2015–</td><td>Výstavy Emy</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Tradice -->
-  <section class="container" id="tradice">
-    <div class="section-head">
-      <h2>Rodinné tradice</h2>
+      <h2>Servisní postupy a údržba</h2>
+      <button class="btn btn-outline" id="showTorque">Momentové hodnoty</button>
     </div>
     <div class="grid">
-      <div class="card col-4">
-        <h3>Jarní běh Juklových</h3>
-        <p><strong>Popis:</strong> Nedělní ranní běh kolem Kunětické hory.</p>
-        <p><strong>Pravidla:</strong> Start v 7:00, společné foto, čaj po doběhu.</p>
+      <div class="card col-6">
+        <h3>Intervaly</h3>
+        <ul>
+          <li><strong>Oleje:</strong> 10–15 tis. km (dle motoru)</li>
+          <li><strong>Rozvody:</strong> 90–120 tis. km (typ TDI/benzín)</li>
+          <li><strong>Brzdová kapalina:</strong> 2 roky</li>
+        </ul>
       </div>
-      <div class="card col-4">
-        <h3>Letní den u Labe</h3>
-        <p><strong>Popis:</strong> Piknik na nábřeží, čtení kroniky, rodinné hry.</p>
-        <p><strong>Pravidla:</strong> Každý přinese jednu vzpomínku nebo fotku.</p>
+      <div class="card col-6">
+        <h3>Typické závady</h3>
+        <ul>
+          <li><strong>TDI:</strong> EGR, VNT, podtlaky</li>
+          <li><strong>1.8T:</strong> PCV hadice, cívky, turbo</li>
+          <li><strong>Podvozek:</strong> silentbloky, čepy</li>
+        </ul>
       </div>
-      <div class="card col-4">
-        <h3>Adventní čtení</h3>
-        <p><strong>Popis:</strong> Společné čtení pověstí, koledy, horký čaj.</p>
-        <p><strong>Pravidla:</strong> Děti vybírají příběh pro večer.</p>
+      <div class="card col-12">
+        <h3>Postupy krok za krokem</h3>
+        <ol>
+          <li><strong>Výměna oleje:</strong> ohřát motor, vypustit, filtr, ťuknout těsnění, dolít, reset servis.</li>
+          <li><strong>Rozvody 1.9 TDI:</strong> aretace, napínák, vodní pumpa, momenty, kontrola značek.</li>
+          <li><strong>Brzdové destičky:</strong> zvednout, odtlačit pístek, vyměnit, odvzdušnit.</li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- Recepty -->
-  <section class="container" id="recepty">
+  <!-- Tuning -->
+  <section class="container" id="tuning">
     <div class="section-head">
-      <h2>Rodinné recepty</h2>
+      <h2>Tuning a úpravy</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Výkon</h3>
+        <ul>
+          <li><strong>1.8T:</strong> Stage 1 (180–200 k), IC, výfuk, software</li>
+          <li><strong>TDI:</strong> VNT nastavení, IC, mapa, spojka</li>
+        </ul>
+      </div>
+      <div class="card col-6">
+        <h3>Podvozek &amp; brzdy</h3>
+        <ul>
+          <li><strong>Podvozek:</strong> pružiny, coilover, geometrii hlídat</li>
+          <li><strong>Brzdy:</strong> kotouče, vedení, kapalina, destičky</li>
+        </ul>
+      </div>
+      <div class="card col-12">
+        <h3>Legálnost a STK</h3>
+        <p class="muted">Úpravy zapisovat, hluk/emise v mezích, homologace dílů.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Katalog dílů -->
+  <section class="container" id="katalog">
+    <div class="section-head">
+      <h2>Katalog dílů (demo)</h2>
       <div class="table-tools">
-        <input type="search" id="recipeSearch" placeholder="Hledat recept (např. štrúdl)">
-        <select id="recipeCat">
+        <input type="search" id="partSearch" placeholder="Hledat díl (např. turbo, čerpadlo)">
+        <select id="partCat">
           <option value="">Kategorie (vše)</option>
-          <option value="sladke">Sladké</option>
-          <option value="slane">Slané</option>
-          <option value="napoje">Nápoje</option>
+          <option value="motor">Motor</option>
+          <option value="podvozek">Podvozek</option>
+          <option value="brzdy">Brzdy</option>
+          <option value="interier">Interiér</option>
         </select>
       </div>
     </div>
     <div class="card">
-      <table id="tableRecipes">
+      <table id="tableParts">
         <thead>
           <tr>
             <th>Název</th>
             <th>Kategorie</th>
-            <th>Trvání</th>
-            <th>Obtížnost</th>
-            <th>Původ</th>
+            <th>OEM číslo</th>
+            <th>Kompatibilita</th>
             <th>Pozn.</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Klářin jablečný štrúdl</td><td>Sladké</td><td>75 min</td><td>Střední</td><td>Rodinný</td><td>Cukr, skořice, rozinky</td></tr>
-          <tr><td>Františkův bylinkový čaj</td><td>Nápoje</td><td>10 min</td><td>Lehká</td><td>Rodinný</td><td>Levandule, med</td></tr>
-          <tr><td>Evina čočková polévka</td><td>Slané</td><td>50 min</td><td>Lehká</td><td>Rodinný</td><td>Zelenina, majoránka</td></tr>
-          <tr><td>Eminy ovesné sušenky</td><td>Sladké</td><td>30 min</td><td>Lehká</td><td>Rodinný</td><td>Oves, med, brusinky</td></tr>
-          <tr><td>Jakubův limonádový sirup</td><td>Nápoje</td><td>40 min</td><td>Střední</td><td>Rodinný</td><td>Citrón, máta</td></tr>
+          <tr>
+            <td>Turbo VNT</td><td>Motor</td><td>03G253014</td><td>TDI AHF/ASV</td><td>Repasovatelné</td>
+          </tr>
+          <tr>
+            <td>Váha vzduchu</td><td>Motor</td><td>06A906461</td><td>1.8T/2.0</td><td>ME7.5 kompatibilita</td>
+          </tr>
+          <tr>
+            <td>Čep řízení</td><td>Podvozek</td><td>1J0411318</td><td>1U/ Golf IV</td><td>Levá/pravá varianta</td>
+          </tr>
+          <tr>
+            <td>Kotouč brzdy 288mm</td><td>Brzdy</td><td>1J0615601</td><td>1.8/2.0</td><td>Vrtané drážkované</td>
+          </tr>
+          <tr>
+            <td>Panel klimatizace</td><td>Interiér</td><td>1U0907044</td><td>Facelift</td><td>CAN varianta</td>
+          </tr>
         </tbody>
       </table>
-    </div>
-    <div class="grid" style="margin-top:12px;">
-      <div class="card col-6">
-        <h3>Klářin jablečný štrúdl — postup</h3>
-        <ol>
-          <li><strong>Těsto:</strong> Mouka, voda, olej — zpracovat do hladka.</li>
-          <li><strong>Náplň:</strong> Jablka, cukr, skořice, rozinky.</li>
-          <li><strong>Pečení:</strong> 180 °C, cca 35–40 min, dozlatova.</li>
-        </ol>
-      </div>
-      <div class="card col-6">
-        <h3>Františkův bylinkový čaj — postup</h3>
-        <ol>
-          <li><strong>Směs:</strong> Levandule, med, citron.</li>
-          <li><strong>Louhovat:</strong> 8–10 minut.</li>
-          <li><strong>Podávat:</strong> Teplý, s plátkem citronu.</li>
-        </ol>
-      </div>
     </div>
   </section>
 
@@ -596,54 +579,26 @@
       <button class="btn btn-outline" id="openGallery">Otevřít slideshow</button>
     </div>
     <div class="grid">
-      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=800&auto=format&fit=crop" alt="Rodinný piknik u řeky"></div>
-      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1513861810402-53342c07bdcc?q=80&w=800&auto=format&fit=crop" alt="Staré knihy a kroniky"></div>
-      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1522008689932-8b4eb2b367a1?q=80&w=800&auto=format&fit=crop" alt="Dílna a dřevořezby"></div>
+      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1a?q=80&w=800&auto=format&fit=crop" alt="Octavia exteriér"></div>
+      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1471440671318-51b7d51c29dd?q=80&w=800&auto=format&fit=crop" alt="Interiér"></div>
+      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1625747266692-3b6d571d3c20?q=80&w=800&auto=format&fit=crop" alt="Detail kola"></div>
     </div>
   </section>
 
-  <!-- Archiv -->
-  <section class="container" id="archiv">
+  <!-- Recenze -->
+  <section class="container" id="recenze">
     <div class="section-head">
-      <h2>Rodinný archiv</h2>
-      <div class="table-tools">
-        <input type="search" id="docSearch" placeholder="Hledat dokument (např. svatba, běh)">
-        <select id="docType">
-          <option value="">Typ (vše)</option>
-          <option value="foto">Fotografie</option>
-          <option value="dopis">Dopis</option>
-          <option value="clanek">Článek</option>
-          <option value="mapa">Mapa</option>
-        </select>
-        <select id="docYear">
-          <option value="">Rok (vše)</option>
-          <option value="1930">1930</option>
-          <option value="1960">1960</option>
-          <option value="1990">1990</option>
-          <option value="2010">2010</option>
-          <option value="2025">2025</option>
-        </select>
-      </div>
+      <h2>Recenze a zkušenosti</h2>
     </div>
     <div class="card">
-      <table id="tableArchive">
-        <thead>
-          <tr>
-            <th>Název</th>
-            <th>Typ</th>
-            <th>Rok</th>
-            <th>Autor</th>
-            <th>Popis</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>První svatba u Labe</td><td>Fotografie</td><td>1932</td><td>Klára</td><td>Skupinové foto, kroje</td></tr>
-          <tr><td>Dopis z dílny</td><td>Dopis</td><td>1946</td><td>Antonín</td><td>Plány na lávku</td></tr>
-          <tr><td>Rekordní běh</td><td>Článek</td><td>1968</td><td>František</td><td>Zápis do kroniky</td></tr>
-          <tr><td>Mapa piknikových míst</td><td>Mapa</td><td>2015</td><td>Jakub</td><td>Geotagy, trasy</td></tr>
-          <tr><td>Výstava fotek</td><td>Fotografie</td><td>2022</td><td>Ema</td><td>Komunitní centrum</td></tr>
-        </tbody>
-      </table>
+      <article>
+        <h3>Majitel RS: 1.8T na denní ježdění</h3>
+        <p>„Spotřeba kolem 8–9 l, radost z výkonu, pozor na údržbu turba a cívky.“</p>
+      </article>
+      <article>
+        <h3>TDI ALH: železná spolehlivost</h3>
+        <p>„Jednoduchá mechanika, levný servis. VNT a EGR občas zlobí, ale díly jsou dostupné.“</p>
+      </article>
     </div>
   </section>
 
@@ -655,40 +610,39 @@
     <div class="card">
       <div class="accordion">
         <div class="accordion-item">
-          <button class="accordion-button">Proč vznikl tento web?</button>
-          <div class="accordion-content">Aby uchoval fiktivní rodinné příběhy Juklových, inspiroval ostatní a ukázal, jak lze budovat kroniku.</div>
+          <button class="accordion-button">Který motor je nejspolehlivější?</button>
+          <div class="accordion-content">ALH 1.9 TDI je legenda, benzín 2.0 AQY je jednoduchý, 1.8T vyžaduje péči.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">Lze přidat další členy?</button>
-          <div class="accordion-content">Ano, přidej řádky do tabulek a karty do sekce profily. Doporučuji data přes JSON.</div>
+          <button class="accordion-button">Jak poznám facelift?</button>
+          <div class="accordion-content">Nové světlomety, interiér, některé motory EU3, drobné změny nárazníků.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">Kde najdu recepty?</button>
-          <div class="accordion-content">Sekce „Recepty“ s filtrací, postupy a rodinnými poznámkami.</div>
+          <button class="accordion-button">Co zkontrolovat při koupi?</button>
+          <div class="accordion-content">Korozi prahů/nápravnice, vůle v podvozku, servis rozvodů, turbo (u TDI/1.8T).</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Modal: přidat příběh -->
+  <!-- Modal kontakt -->
   <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <h3 id="modalTitle">Přidat příběh do kroniky</h3>
-      <p class="muted">Napiš krátké shrnutí, rok a autora. Příběh se uloží do archivu.</p>
-      <form id="storyForm">
-        <label>Autor:<br><input type="text" id="storyAuthor" placeholder="např. Ema Juklová"></label><br><br>
-        <label>Rok:<br><input type="number" id="storyYear" placeholder="např. 2024" min="1900" max="2100"></label><br><br>
-        <label>Příběh:<br><textarea rows="5" id="storyText" class="input" placeholder="Krátké shrnutí příběhu..."></textarea></label><br><br>
+      <h3 id="modalTitle">Kontakt a podpora</h3>
+      <p class="muted">Napiš své požadavky na rozšíření: motory, katalog, fotogalerie, import dat.</p>
+      <form>
+        <label>Tvůj e-mail:<br><input type="email" placeholder="např. jan@domena.cz"></label><br><br>
+        <label>Zpráva:<br><textarea rows="5" class="input" placeholder="Co přesně chceš přidat?"></textarea></label><br><br>
         <div style="display:flex; gap:10px;">
           <button type="button" class="btn btn-outline" id="closeModal">Zavřít</button>
-          <button type="submit" class="btn" id="sendMsg">Uložit</button>
+          <button type="button" class="btn" id="sendMsg">Odeslat</button>
         </div>
       </form>
     </div>
   </div>
 
   <!-- Toast -->
-  <div class="toast" id="toast">Příběh uložen do archivu.</div>
+  <div class="toast" id="toast">Zpráva odeslána. Ozveme se brzy.</div>
 
   <!-- Skripty -->
   <script>
@@ -700,6 +654,7 @@
       html.setAttribute('data-theme', isLight ? 'dark' : 'light');
       localStorage.setItem('theme', isLight ? 'dark' : 'light');
     });
+    // Načtení tématu
     (function() {
       const saved = localStorage.getItem('theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
@@ -731,52 +686,36 @@
     openModal?.addEventListener('click', () => { modalBackdrop.classList.add('open'); modalBackdrop.style.display = 'grid'; });
     closeModal?.addEventListener('click', () => { modalBackdrop.classList.remove('open'); modalBackdrop.style.display = 'none'; });
 
-    // Toast helper
+    // Toast
+    const sendMsg = document.getElementById('sendMsg');
     const toast = document.getElementById('toast');
-    function showToast(msg) {
-      toast.textContent = msg;
+    sendMsg?.addEventListener('click', () => {
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2500);
-    }
-
-    // Přidat příběh do archivu (demo append do tabulky)
-    const storyForm = document.getElementById('storyForm');
-    storyForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const author = document.getElementById('storyAuthor').value.trim();
-      const year = document.getElementById('storyYear').value.trim();
-      const text = document.getElementById('storyText').value.trim();
-      if (!author || !year || !text) {
-        showToast('Doplň autora, rok a příběh.');
-        return;
-      }
-      const tbody = document.querySelector('#tableArchive tbody');
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${text.slice(0,30)}...</td><td>Článek</td><td>${year}</td><td>${author}</td><td>${text}</td>`;
-      tbody.prepend(tr);
       modalBackdrop.style.display = 'none';
-      showToast('Příběh uložen do archivu.');
-      storyForm.reset();
     });
 
-    // Filtrování osob
-    const personSearch = document.getElementById('personSearch');
-    const personGen = document.getElementById('personGen');
-    const personSort = document.getElementById('personSort');
-    function filterPeople() {
-      const q = personSearch.value.toLowerCase();
-      const gen = personGen.value;
-      const rows = document.querySelectorAll('#tablePeople tbody tr');
-      rows.forEach(r => {
-        const name = r.children[0].innerText.toLowerCase();
-        const g = r.children[2].innerText;
-        const match = name.includes(q) && (!gen || g === gen);
-        r.style.display = match ? '' : 'none';
+    // Jednoduché filtrování motorů
+    const engineSearch = document.getElementById('engineSearch');
+    const engineFuel = document.getElementById('engineFuel');
+    const engineSort = document.getElementById('engineSort');
+    function filterEngines() {
+      const q = engineSearch.value.toLowerCase();
+      const fuel = engineFuel.value;
+      ['tableBenzin','tableDiesel'].forEach(id => {
+        const rows = document.querySelectorAll('#' + id + ' tbody tr');
+        rows.forEach(r => {
+          const text = r.innerText.toLowerCase();
+          const isDiesel = id === 'tableDiesel';
+          const matchFuel = !fuel || (fuel === 'nafta' && isDiesel) || (fuel === 'benzín' && !isDiesel);
+          r.style.display = (text.includes(q) && matchFuel) ? '' : 'none';
+        });
       });
     }
-    personSearch?.addEventListener('input', filterPeople);
-    personGen?.addEventListener('change', filterPeople);
+    engineSearch?.addEventListener('input', filterEngines);
+    engineFuel?.addEventListener('change', filterEngines);
 
+    // Řazení podle sloupečku (demo)
     function sortTable(tableId, keyIndex, numeric = false) {
       const tbody = document.querySelector('#' + tableId + ' tbody');
       const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display !== 'none');
@@ -793,64 +732,28 @@
       });
       rows.forEach(r => tbody.appendChild(r));
     }
-    personSort?.addEventListener('change', () => {
-      const val = personSort.value;
-      if (val === 'name') sortTable('tablePeople', 0);
-      if (val === 'birth') sortTable('tablePeople', 3, true);
-      if (val === 'role') sortTable('tablePeople', 1);
+    engineSort?.addEventListener('change', () => {
+      const val = engineSort.value;
+      if (val === 'power') { sortTable('tableBenzin', 2, true); sortTable('tableDiesel', 2, true); }
+      if (val === 'code') { sortTable('tableBenzin', 0); sortTable('tableDiesel', 0); }
+      if (val === 'year') { sortTable('tableBenzin', 4); sortTable('tableDiesel', 4); }
     });
 
-    // Filtrování míst
-    const placeSearch = document.getElementById('placeSearch');
-    const placeType = document.getElementById('placeType');
-    function filterPlaces() {
-      const q = placeSearch.value.toLowerCase();
-      const type = placeType.value.toLowerCase();
-      document.querySelectorAll('#tablePlaces tbody tr').forEach(r => {
-        const name = r.children[0].innerText.toLowerCase();
-        const t = r.children[1].innerText.toLowerCase();
-        const match = name.includes(q) && (!type || t === type);
-        r.style.display = match ? '' : 'none';
-      });
-    }
-    placeSearch?.addEventListener('input', filterPlaces);
-    placeType?.addEventListener('change', filterPlaces);
-
-    // Filtrování receptů
-    const recipeSearch = document.getElementById('recipeSearch');
-    const recipeCat = document.getElementById('recipeCat');
-    function filterRecipes() {
-      const q = recipeSearch.value.toLowerCase();
-      const cat = recipeCat.value.toLowerCase();
-      document.querySelectorAll('#tableRecipes tbody tr').forEach(r => {
+    // Katalog dílů — filtrování
+    const partSearch = document.getElementById('partSearch');
+    const partCat = document.getElementById('partCat');
+    function filterParts() {
+      const q = partSearch.value.toLowerCase();
+      const cat = partCat.value;
+      document.querySelectorAll('#tableParts tbody tr').forEach(r => {
         const name = r.children[0].innerText.toLowerCase();
         const c = r.children[1].innerText.toLowerCase();
         const match = name.includes(q) && (!cat || c === cat);
         r.style.display = match ? '' : 'none';
       });
     }
-    recipeSearch?.addEventListener('input', filterRecipes);
-    recipeCat?.addEventListener('change', filterRecipes);
-
-    // Archiv filtry
-    const docSearch = document.getElementById('docSearch');
-    const docType = document.getElementById('docType');
-    const docYear = document.getElementById('docYear');
-    function filterArchive() {
-      const q = docSearch.value.toLowerCase();
-      const type = docType.value.toLowerCase();
-      const year = docYear.value;
-      document.querySelectorAll('#tableArchive tbody tr').forEach(r => {
-        const name = r.children[0].innerText.toLowerCase();
-        const t = r.children[1].innerText.toLowerCase();
-        const y = r.children[2].innerText;
-        const match = name.includes(q) && (!type || t === type) && (!year || y === year);
-        r.style.display = match ? '' : 'none';
-      });
-    }
-    docSearch?.addEventListener('input', filterArchive);
-    docType?.addEventListener('change', filterArchive);
-    docYear?.addEventListener('change', filterArchive);
+    partSearch?.addEventListener('input', filterParts);
+    partCat?.addEventListener('change', filterParts);
 
     // Galerie — modal (demo)
     const openGallery = document.getElementById('openGallery');
@@ -864,29 +767,29 @@
     <div class="footgrid">
       <div>
         <h3>O projektu</h3>
-        <p class="muted">Fiktivní kronika Juklových — ukázka, jak stavět rodinný web a uchovávat příběhy.</p>
+        <p class="muted">Cílem je vytvořit nejobsáhlejší encyklopedii Octavie I v češtině.</p>
       </div>
       <div>
         <h3>Navigace</h3>
         <ul>
-          <li><a href="#rodokmen">Rodokmen</a></li>
-          <li><a href="#kronika">Kronika</a></li>
-          <li><a href="#archiv">Archiv</a></li>
+          <li><a href="#technika">Technika</a></li>
+          <li><a href="#servis">Servis</a></li>
+          <li><a href="#katalog">Díly</a></li>
         </ul>
       </div>
       <div>
         <h3>Komunita</h3>
         <ul>
-          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#recenze">Recenze</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div>
         <h3>Kontakt</h3>
-        <p class="muted">Chceš přidat další generaci? Ozvi se a rozšíříme kroniku.</p>
+        <p class="muted">Napiš a rozšíříme sekce o data, tabulky a fotky.</p>
       </div>
     </div>
-    <div class="copyright">© Kronika Juklových</div>
+    <div class="copyright">© Octavia I Encyclopedia</div>
   </footer>
 </body>
 </html>
