@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Octavia I — Kompletní encyklopedie</title>
-  <meta name="description" content="Největší web o jedničkové Škodě Octavia: historie, technická data, výbavy, servis, tuning, katalog dílů, galerie a recenze.">
+  <title>Láska v růžové — Fiktivní profily a seznamka</title>
+  <meta name="description" content="Fiktivní, bezpečný a moderní růžový web s profily žen hledajících partnera: zájmy, hodnoty, preference a kontakty.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,45 +13,45 @@
        Design systém & reset
     ----------------------- */
     :root {
-      /* Tmavý/světlý režim */
-      --bg: #0f1216;
-      --bg-elev: #141820;
-      --text: #e7eaf0;
-      --muted: #b8c0cc;
-      --brand: #4f9cff;
-      --brand-2: #7c8cff;
-      --accent: #2bd4bd;
+      /* Paleta růžová */
+      --bg: #150b12;
+      --bg-elev: #1e0f19;
+      --text: #ffeaf3;
+      --muted: #f2b9c8;
+      --brand: #ff3b8a;      /* primární růžová */
+      --brand-2: #ff72a8;    /* sekundární růžová */
+      --accent: #ffd1e1;     /* světle růžová akcent */
       --danger: #ff6b6b;
       --ok: #60d394;
       --warn: #ffb936;
 
-      --shadow: 0 8px 30px rgba(0,0,0,0.25);
-      --radius: 14px;
-      --radius-sm: 10px;
-      --radius-xs: 8px;
+      --shadow: 0 10px 40px rgba(0,0,0,0.35);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --radius-xs: 10px;
 
       --maxw: 1200px;
 
       /* Typografie (fluid) */
-      --step--1: clamp(0.85rem, 0.82rem + 0.12vw, 0.95rem);
-      --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
-      --step-1: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
-      --step-2: clamp(1.6rem, 1.25rem + 1vw, 2.1rem);
-      --step-3: clamp(2.2rem, 1.8rem + 1.6vw, 2.8rem);
-      --step-4: clamp(3rem, 2.2rem + 2.4vw, 3.8rem);
+      --step--1: clamp(0.9rem, 0.86rem + 0.12vw, 1rem);
+      --step-0: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+      --step-1: clamp(1.3rem, 1.1rem + 0.6vw, 1.6rem);
+      --step-2: clamp(1.7rem, 1.3rem + 1.2vw, 2.3rem);
+      --step-3: clamp(2.4rem, 1.8rem + 1.8vw, 3rem);
+      --step-4: clamp(3.2rem, 2.4rem + 2.6vw, 4rem);
     }
     [data-theme="light"] {
-      --bg: #f7f9fc;
+      --bg: #fff6fa;
       --bg-elev: #ffffff;
-      --text: #1d2230;
-      --muted: #5a6272;
-      --brand: #0a84ff;
-      --brand-2: #6366f1;
-      --accent: #0dd4aa;
-      --danger: #e11d48;
+      --text: #2b0f20;
+      --muted: #7a4662;
+      --brand: #e4006d;
+      --brand-2: #ff72a8;
+      --accent: #ffd1e1;
+      --danger: #c32449;
       --ok: #0bbf74;
       --warn: #f59e0b;
-      --shadow: 0 12px 40px rgba(22, 31, 46, 0.18);
+      --shadow: 0 16px 50px rgba(228, 0, 109, 0.2);
     }
     *, *::before, *::after { box-sizing: border-box; }
     html, body { padding:0; margin:0; }
@@ -74,8 +74,8 @@
     ----------------------- */
     header {
       position: sticky; top: 0; z-index: 999;
-      backdrop-filter: saturate(1.8) blur(10px);
-      background: color-mix(in oklab, var(--bg-elev), transparent 10%);
+      backdrop-filter: saturate(1.8) blur(12px);
+      background: color-mix(in oklab, var(--bg-elev), transparent 8%);
       border-bottom: 1px solid color-mix(in oklab, var(--muted), transparent 70%);
     }
     .topbar {
@@ -86,22 +86,21 @@
       display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:0.2px;
     }
     .logo-badge {
-      width:36px; height:36px; border-radius:12px; background: linear-gradient(135deg, var(--brand), var(--accent));
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
       box-shadow: var(--shadow);
     }
-    nav ul {
-      display:flex; flex-wrap: wrap; gap: 8px 18px; list-style:none; padding:0; margin:0;
-    }
+    nav ul { display:flex; flex-wrap: wrap; gap: 8px 18px; list-style:none; padding:0; margin:0; }
     nav a {
       display:inline-block; padding:10px 14px; border-radius: 999px;
-      background: color-mix(in oklab, var(--bg-elev), transparent 8%);
-      border: 1px solid color-mix(in oklab, var(--muted), transparent 70%);
+      background: color-mix(in oklab, var(--accent), transparent 70%);
+      border: 1px solid color-mix(in oklab, var(--muted), transparent 60%);
     }
     .tools { display:flex; gap:8px; align-items:center; }
     .btn, button {
       appearance: none; border: none; cursor: pointer;
       padding:10px 14px; border-radius: 999px;
-      background: linear-gradient(180deg, color-mix(in oklab, var(--brand), white 10%), var(--brand));
+      background: linear-gradient(180deg, color-mix(in oklab, var(--brand), white 12%), var(--brand));
       color:#fff; font-weight:600; box-shadow: var(--shadow);
     }
     .btn-outline {
@@ -113,9 +112,7 @@
     /* -----------------------
        Hero
     ----------------------- */
-    .hero {
-      display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; padding: 36px 0 24px;
-    }
+    .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; padding: 36px 0 24px; }
     .hero-card {
       background: var(--bg-elev); border-radius: var(--radius); padding: 24px;
       box-shadow: var(--shadow); border: 1px solid color-mix(in oklab, var(--muted), transparent 80%);
@@ -126,7 +123,7 @@
     .chip {
       padding:8px 12px; border-radius:999px;
       background: color-mix(in oklab, var(--brand-2), transparent 85%);
-      border: 1px solid color-mix(in oklab, var(--brand-2), transparent 70%);
+      border: 1px solid color-mix(in oklab, var(--brand-2), transparent 55%);
       color: var(--muted); font-weight:600;
     }
 
@@ -136,9 +133,7 @@
     section { padding: 24px 0; }
     .section-head { display:flex; align-items:end; justify-content:space-between; margin-bottom: 12px; }
     .section-head h2 { font-size: var(--step-2); margin:0; }
-    .grid {
-      display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px;
-    }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
     .col-4 { grid-column: span 4; }
     .col-6 { grid-column: span 6; }
     .col-8 { grid-column: span 8; }
@@ -173,22 +168,32 @@
     ----------------------- */
     table { width:100%; border-collapse: collapse; border-radius: var(--radius-xs); overflow:hidden; }
     thead th {
-      text-align:left; padding:12px; font-weight:700; background: color-mix(in oklab, var(--bg-elev), transparent 4%);
+      text-align:left; padding:12px; font-weight:700; background: color-mix(in oklab, var(--bg-elev), transparent 6%);
       position:sticky; top:0;
     }
     tbody td { padding:12px; border-top: 1px solid color-mix(in oklab, var(--muted), transparent 85%); }
-    tbody tr:hover { background: color-mix(in oklab, var(--bg-elev), transparent 6%); }
+    tbody tr:hover { background: color-mix(in oklab, var(--accent), transparent 85%); }
     .table-tools { display:flex; gap:12px; margin-bottom:8px; }
-    .input, input, select {
-      padding:10px 12px; border-radius: 10px; border:1px solid color-mix(in oklab, var(--muted), transparent 70%);
+    .input, input, select, textarea {
+      padding:10px 12px; border-radius: 10px; border:1px solid color-mix(in oklab, var(--muted), transparent 60%);
       background: color-mix(in oklab, var(--bg-elev), transparent 6%); color:var(--text);
+    }
+
+    /* -----------------------
+       Badges & tags
+    ----------------------- */
+    .tag {
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      background: color-mix(in oklab, var(--brand-2), white 60%);
+      color: var(--text); border: 1px solid color-mix(in oklab, var(--brand-2), transparent 70%);
+      font-size: var(--step--1); margin: 2px 4px;
     }
 
     /* -----------------------
        Modal & toast
     ----------------------- */
-    .modal-backdrop { position: fixed; inset:0; background: rgba(0,0,0,0.5); display:none; place-items:center; z-index: 1000; }
-    .modal { width: min(680px, 95vw); background: var(--bg-elev); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+    .modal-backdrop { position: fixed; inset:0; background: rgba(0,0,0,0.45); display:none; place-items:center; z-index: 1000; }
+    .modal { width: min(760px, 95vw); background: var(--bg-elev); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
     .modal.open { display:grid; }
     .toast {
       position: fixed; right: 18px; bottom: 18px; background: var(--bg-elev);
@@ -227,26 +232,22 @@
       <div class="logo">
         <span class="logo-badge" aria-hidden="true"></span>
         <div>
-          <div>Octavia I</div>
-          <small class="muted">Kompletní encyklopedie</small>
+          <div>Láska v růžové</div>
+          <small class="muted">Fiktivní profily žen</small>
         </div>
       </div>
       <nav aria-label="Hlavní navigace">
         <ul>
           <li><a href="#uvod">Úvod</a></li>
-          <li><a href="#technika">Technická data</a></li>
-          <li><a href="#vybava">Výbavy</a></li>
-          <li><a href="#historie">Historie</a></li>
-          <li><a href="#servis">Servis</a></li>
-          <li><a href="#tuning">Tuning</a></li>
-          <li><a href="#katalog">Katalog dílů</a></li>
+          <li><a href="#profily">Profily</a></li>
+          <li><a href="#filtr">Vyhledávání</a></li>
           <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#recenze">Recenze</a></li>
+          <li><a href="#bezpecnost">Bezpečnost a respekt</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
       <div class="tools">
-        <button class="btn btn-outline" id="openModal">Kontakt</button>
+        <button class="btn btn-outline" id="openModal">Vytvořit profil</button>
         <button class="theme-toggle" id="themeToggle" aria-label="Přepnout téma">🌓</button>
       </div>
     </div>
@@ -255,320 +256,182 @@
   <!-- Hero -->
   <section class="hero container" id="uvod">
     <div class="hero-card">
-      <h1>Škoda Octavia I</h1>
-      <p class="lead">Nejpodrobnější zdroj o jedničkových oktávkách: motory, výbavy, servisní postupy, úpravy i příběhy majitelů.</p>
+      <h1>Láska v růžové</h1>
+      <p class="lead">Fiktivní katalog profilů žen, které hledají partnera. Důraz na hodnoty, zájmy a respektující komunikaci.</p>
       <div class="chipset" role="list" aria-label="Rychlé štítky">
-        <span class="chip" role="listitem">1996–2010</span>
-        <span class="chip" role="listitem">Typ 1U</span>
-        <span class="chip" role="listitem">Sedan / Combi</span>
-        <span class="chip" role="listitem">RS 1.8T</span>
-        <span class="chip" role="listitem">TDI ALH</span>
+        <span class="chip" role="listitem">Růžový design</span>
+        <span class="chip" role="listitem">Bezpečná komunikace</span>
+        <span class="chip" role="listitem">Hodnoty & zájmy</span>
       </div>
       <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="#technika" class="btn">Prozkoumat techniku</a>
-        <a href="#katalog" class="btn btn-outline">Katalog dílů</a>
+        <a href="#profily" class="btn">Projít profily</a>
+        <a href="#filtr" class="btn btn-outline">Vyhledávat</a>
       </div>
     </div>
     <div class="hero-card">
-      <img src="https://images.unsplash.com/photo-1503376789871-12d0d6b6aa68?q=80&w=1200&auto=format&fit=crop" alt="Škoda Octavia I na silnici">
-      <p class="muted">Ilustrační foto — nahraď vlastním. Doporučeno AVIF/WebP, lazy-loading.</p>
+      <img src="https://images.unsplash.com/photo-1513152697235-fe74e59f6762?q=80&w=1200&auto=format&fit=crop" alt="Růžové květy, symbol nové lásky">
+      <p class="muted">Ilustrační foto — nahraď vlastními obrázky a ikonami.</p>
     </div>
   </section>
 
-  <!-- Technická data -->
-  <section class="container" id="technika">
+  <!-- Profily (cards + seznam) -->
+  <section class="container" id="profily">
     <div class="section-head">
-      <h2>Technická data a motorizace</h2>
-      <div class="table-tools">
-        <input type="search" id="engineSearch" placeholder="Hledat motor (např. ALH, 1.8T, 66kW)">
-        <select id="engineFuel">
-          <option value="">Palivo (vše)</option>
-          <option value="benzín">Benzín</option>
-          <option value="nafta">Nafta</option>
-        </select>
-        <select id="engineSort">
-          <option value="power">Seřadit podle výkonu</option>
-          <option value="code">Podle kódu motoru</option>
-          <option value="year">Podle roku</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="tabs" role="tablist" aria-label="Kategorie motorů">
-      <button class="tab active" data-target="benziny" role="tab" aria-selected="true">Benzín</button>
-      <button class="tab" data-target="diesely" role="tab" aria-selected="false">Nafta</button>
-      <button class="tab" data-target="prevodovky" role="tab" aria-selected="false">Převodovky</button>
-    </div>
-
-    <div class="tab-panels">
-      <div class="panel active" id="benziny" role="tabpanel" aria-label="Benzínové motory">
-        <div class="card">
-          <h3>Benzínové motory</h3>
-          <table id="tableBenzin">
-            <thead>
-              <tr>
-                <th data-sort="code">Kód</th>
-                <th data-sort="disp">Objem</th>
-                <th data-sort="power">Výkon</th>
-                <th data-sort="torque">Toč. moment</th>
-                <th data-sort="year">Roky</th>
-                <th>Poznámka</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Přidej desítky/ stovky řádků pro „tisíce“ řádků webu -->
-              <tr>
-                <td>AGN</td><td>1.8</td><td>92 kW</td><td>170 Nm</td><td>1998–2000</td><td>Atmosférický, 20V</td>
-              </tr>
-              <tr>
-                <td>AJQ</td><td>1.8T</td><td>132 kW</td><td>235 Nm</td><td>2000–2002</td><td>RS, turbo</td>
-              </tr>
-              <tr>
-                <td>AUM</td><td>1.8T</td><td>110 kW</td><td>210 Nm</td><td>2001–2005</td><td>ME7.5</td>
-              </tr>
-              <tr>
-                <td>AQY</td><td>2.0</td><td>85 kW</td><td>172 Nm</td><td>1999–2005</td><td>Jednobodové vstřikování</td>
-              </tr>
-              <tr>
-                <td>AXP</td><td>1.4</td><td>55 kW</td><td>120 Nm</td><td>2001–2005</td><td>8V</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="panel" id="diesely" role="tabpanel" aria-label="Naftové motory">
-        <div class="card">
-          <h3>Naftové motory</h3>
-          <table id="tableDiesel">
-            <thead>
-              <tr>
-                <th data-sort="code">Kód</th>
-                <th data-sort="disp">Objem</th>
-                <th data-sort="power">Výkon</th>
-                <th data-sort="torque">Toč. moment</th>
-                <th data-sort="year">Roky</th>
-                <th>Poznámka</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>ALH</td><td>1.9 TDI</td><td>66 kW</td><td>200 Nm</td><td>1999–2003</td><td>Rot. čerpadlo, spolehlivý</td>
-              </tr>
-              <tr>
-                <td>AHF</td><td>1.9 TDI</td><td>81 kW</td><td>235 Nm</td><td>1998–2000</td><td>VNT turbo</td>
-              </tr>
-              <tr>
-                <td>ASV</td><td>1.9 TDI</td><td>81 kW</td><td>235 Nm</td><td>2000–2005</td><td>Vylepšený AHF</td>
-              </tr>
-              <tr>
-                <td>AGR</td><td>1.9 TDI</td><td>66 kW</td><td>210 Nm</td><td>1998–2000</td><td>Wastegate turbo</td>
-              </tr>
-              <tr>
-                <td>ALH</td><td>1.9 TDI</td><td>66 kW</td><td>210 Nm</td><td>2001–2003</td><td>EU3 varianta</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="panel" id="prevodovky" role="tabpanel" aria-label="Převodovky">
-        <div class="card">
-          <h3>Převodovky</h3>
-          <ul>
-            <li><strong>Manuál 5st:</strong> 02J/02K, různé stálé převody</li>
-            <li><strong>Manuál 6st (RS):</strong> 02M, pevnější hřídel, delší 6.</li>
-            <li><strong>Automat 4st:</strong> 01M (omezená spolehlivost, servis ATF)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Výbavy -->
-  <section class="container" id="vybava">
-    <div class="section-head">
-      <h2>Výbavové stupně</h2>
+      <h2>Profily žen</h2>
     </div>
     <div class="grid">
       <div class="card col-4">
-        <h3>Ambiente</h3>
-        <ul>
-          <li><strong>Standard:</strong> el. okna, centrální zamykání</li>
-          <li><strong>Příplatky:</strong> klimatizace, rádio</li>
-        </ul>
-      </div>
-      <div class="card col-4">
-        <h3>Elegance</h3>
-        <ul>
-          <li><strong>Standard:</strong> klima, litá kola, palubní PC</li>
-          <li><strong>Příplatky:</strong> xenony, kožené sedačky</li>
-        </ul>
-      </div>
-      <div class="card col-4">
-        <h3>Laurin &amp; Klement</h3>
-        <ul>
-          <li><strong>Standard:</strong> kůže, dřevo, audio</li>
-          <li><strong>Příplatky:</strong> navigace, park. senzory</li>
-        </ul>
-      </div>
-      <div class="card col-4">
-        <h3>RS</h3>
-        <ul>
-          <li><strong>Motor:</strong> 1.8T 132 kW</li>
-          <li><strong>Brzdy:</strong> větší kotouče, červené třmeny</li>
-        </ul>
-      </div>
-      <div class="card col-4">
-        <h3>Speciální edice</h3>
-        <ul>
-          <li><strong>Family:</strong> praktičnost, výbava</li>
-          <li><strong>Tour:</strong> pozdní série po O2</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Historie -->
-  <section class="container" id="historie">
-    <div class="section-head">
-      <h2>Historie a milníky</h2>
-    </div>
-    <div class="card">
-      <div class="accordion">
-        <div class="accordion-item">
-          <button class="accordion-button">1996–1999: Uvedení modelu</button>
-          <div class="accordion-content">
-            První generace, platforma A4, základní motory, nástup kombi.
-          </div>
+        <h3>Anna, 27</h3>
+        <p><strong>Hledaný typ:</strong> Empatický, smysl pro humor, rád cestuje.</p>
+        <p><strong>Zájmy:</strong> Fotografie, kavárny, běh.</p>
+        <p><strong>Hodnoty:</strong> Upřímnost, laskavost, rodina.</p>
+        <div>
+          <span class="tag">Praha</span>
+          <span class="tag">introvert</span>
+          <span class="tag">knihy</span>
         </div>
-        <div class="accordion-item">
-          <button class="accordion-button">2000: Facelift</button>
-          <div class="accordion-content">
-            Úprava světel, interiéru, motorů (EU3), zlepšení bezpečnosti.
-          </div>
+      </div>
+      <div class="card col-4">
+        <h3>Bea, 31</h3>
+        <p><strong>Hledaný typ:</strong> Stabilní, má rád hudbu, respektující partner.</p>
+        <p><strong>Zájmy:</strong> Koncerty, jóga, vaření.</p>
+        <p><strong>Hodnoty:</strong> Respekt, rovnost, otevřená komunikace.</p>
+        <div>
+          <span class="tag">Brno</span>
+          <span class="tag">společenská</span>
+          <span class="tag">jóga</span>
         </div>
-        <div class="accordion-item">
-          <button class="accordion-button">2001–2005: RS a rozšíření</button>
-          <div class="accordion-content">
-            RS 1.8T, rozšířená nabídka TDI, nové výbavy.
-          </div>
+      </div>
+      <div class="card col-4">
+        <h3>Clara, 24</h3>
+        <p><strong>Hledaný typ:</strong> Kreativní, zvědavý, podporující.</p>
+        <p><strong>Zájmy:</strong> Malování, filmy, procházky.</p>
+        <p><strong>Hodnoty:</strong> Respekt, empatie, svoboda.</p>
+        <div>
+          <span class="tag">Ostrava</span>
+          <span class="tag">umění</span>
+          <span class="tag">kino</span>
         </div>
-        <div class="accordion-item">
-          <button class="accordion-button">2004–2010: Série Tour</button>
-          <div class="accordion-content">
-            Pokračování výroby po nástupu O2, zjednodušené výbavy.
-          </div>
+      </div>
+      <div class="card col-4">
+        <h3>Diana, 29</h3>
+        <p><strong>Hledaný typ:</strong> Zodpovědný, rád sportuje, má nadhled.</p>
+        <p><strong>Zájmy:</strong> Běh, cyklo, hory.</p>
+        <p><strong>Hodnoty:</strong> Spolehlivost, humor, hranice.</p>
+        <div>
+          <span class="tag">Plzeň</span>
+          <span class="tag">sport</span>
+          <span class="tag">hory</span>
+        </div>
+      </div>
+      <div class="card col-4">
+        <h3>Ema, 26</h3>
+        <p><strong>Hledaný typ:</strong> Trpělivý, má rád zvířata, kreativní.</p>
+        <p><strong>Zájmy:</strong> Psi, fotografie, cestování.</p>
+        <p><strong>Hodnoty:</strong> Ohleduplnost, autenticita, komunikace.</p>
+        <div>
+          <span class="tag">Pardubice</span>
+          <span class="tag">psi</span>
+          <span class="tag">foto</span>
+        </div>
+      </div>
+      <div class="card col-4">
+        <h3>Freya, 34</h3>
+        <p><strong>Hledaný typ:</strong> Partner s respektem, hodnotí upřímnost.</p>
+        <p><strong>Zájmy:</strong> Cestování, čtení, hudba.</p>
+        <p><strong>Hodnoty:</strong> Důvěra, svědomitost, humor.</p>
+        <div>
+          <span class="tag">Liberec</span>
+          <span class="tag">cestování</span>
+          <span class="tag">hudba</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Servis -->
-  <section class="container" id="servis">
-    <div class="section-head">
-      <h2>Servisní postupy a údržba</h2>
-      <button class="btn btn-outline" id="showTorque">Momentové hodnoty</button>
-    </div>
-    <div class="grid">
-      <div class="card col-6">
-        <h3>Intervaly</h3>
-        <ul>
-          <li><strong>Oleje:</strong> 10–15 tis. km (dle motoru)</li>
-          <li><strong>Rozvody:</strong> 90–120 tis. km (typ TDI/benzín)</li>
-          <li><strong>Brzdová kapalina:</strong> 2 roky</li>
-        </ul>
-      </div>
-      <div class="card col-6">
-        <h3>Typické závady</h3>
-        <ul>
-          <li><strong>TDI:</strong> EGR, VNT, podtlaky</li>
-          <li><strong>1.8T:</strong> PCV hadice, cívky, turbo</li>
-          <li><strong>Podvozek:</strong> silentbloky, čepy</li>
-        </ul>
-      </div>
-      <div class="card col-12">
-        <h3>Postupy krok za krokem</h3>
-        <ol>
-          <li><strong>Výměna oleje:</strong> ohřát motor, vypustit, filtr, ťuknout těsnění, dolít, reset servis.</li>
-          <li><strong>Rozvody 1.9 TDI:</strong> aretace, napínák, vodní pumpa, momenty, kontrola značek.</li>
-          <li><strong>Brzdové destičky:</strong> zvednout, odtlačit pístek, vyměnit, odvzdušnit.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tuning -->
-  <section class="container" id="tuning">
-    <div class="section-head">
-      <h2>Tuning a úpravy</h2>
-    </div>
-    <div class="grid">
-      <div class="card col-6">
-        <h3>Výkon</h3>
-        <ul>
-          <li><strong>1.8T:</strong> Stage 1 (180–200 k), IC, výfuk, software</li>
-          <li><strong>TDI:</strong> VNT nastavení, IC, mapa, spojka</li>
-        </ul>
-      </div>
-      <div class="card col-6">
-        <h3>Podvozek &amp; brzdy</h3>
-        <ul>
-          <li><strong>Podvozek:</strong> pružiny, coilover, geometrii hlídat</li>
-          <li><strong>Brzdy:</strong> kotouče, vedení, kapalina, destičky</li>
-        </ul>
-      </div>
-      <div class="card col-12">
-        <h3>Legálnost a STK</h3>
-        <p class="muted">Úpravy zapisovat, hluk/emise v mezích, homologace dílů.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Katalog dílů -->
-  <section class="container" id="katalog">
-    <div class="section-head">
-      <h2>Katalog dílů (demo)</h2>
-      <div class="table-tools">
-        <input type="search" id="partSearch" placeholder="Hledat díl (např. turbo, čerpadlo)">
-        <select id="partCat">
-          <option value="">Kategorie (vše)</option>
-          <option value="motor">Motor</option>
-          <option value="podvozek">Podvozek</option>
-          <option value="brzdy">Brzdy</option>
-          <option value="interier">Interiér</option>
+    <div class="card col-12" style="margin-top: 14px;">
+      <h3>Seznam profilů (tabulka)</h3>
+      <div class="table-tools" id="filtr">
+        <input type="search" id="profileSearch" placeholder="Hledat jméno, město, zájem...">
+        <select id="profileCity">
+          <option value="">Město (vše)</option>
+          <option value="Praha">Praha</option>
+          <option value="Brno">Brno</option>
+          <option value="Ostrava">Ostrava</option>
+          <option value="Plzeň">Plzeň</option>
+          <option value="Pardubice">Pardubice</option>
+          <option value="Liberec">Liberec</option>
+        </select>
+        <select id="profileSort">
+          <option value="name">Podle jména</option>
+          <option value="age">Podle věku</option>
+          <option value="city">Podle města</option>
         </select>
       </div>
-    </div>
-    <div class="card">
-      <table id="tableParts">
+      <table id="tableProfiles">
         <thead>
           <tr>
-            <th>Název</th>
-            <th>Kategorie</th>
-            <th>OEM číslo</th>
-            <th>Kompatibilita</th>
-            <th>Pozn.</th>
+            <th>Jméno</th>
+            <th>Věk</th>
+            <th>Město</th>
+            <th>Hledaný typ</th>
+            <th>Zájmy</th>
+            <th>Hodnoty</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Turbo VNT</td><td>Motor</td><td>03G253014</td><td>TDI AHF/ASV</td><td>Repasovatelné</td>
-          </tr>
-          <tr>
-            <td>Váha vzduchu</td><td>Motor</td><td>06A906461</td><td>1.8T/2.0</td><td>ME7.5 kompatibilita</td>
-          </tr>
-          <tr>
-            <td>Čep řízení</td><td>Podvozek</td><td>1J0411318</td><td>1U/ Golf IV</td><td>Levá/pravá varianta</td>
-          </tr>
-          <tr>
-            <td>Kotouč brzdy 288mm</td><td>Brzdy</td><td>1J0615601</td><td>1.8/2.0</td><td>Vrtané drážkované</td>
-          </tr>
-          <tr>
-            <td>Panel klimatizace</td><td>Interiér</td><td>1U0907044</td><td>Facelift</td><td>CAN varianta</td>
-          </tr>
+          <tr><td>Anna</td><td>27</td><td>Praha</td><td>Empatický, vtipný, cestovatel</td><td>Fotografie, kavárny, běh</td><td>Upřímnost, laskavost, rodina</td></tr>
+          <tr><td>Bea</td><td>31</td><td>Brno</td><td>Stabilní, hudební, respektující</td><td>Koncerty, jóga, vaření</td><td>Respekt, rovnost, komunikace</td></tr>
+          <tr><td>Clara</td><td>24</td><td>Ostrava</td><td>Kreativní, zvědavý, podporující</td><td>Malování, filmy, procházky</td><td>Empatie, respekt, svoboda</td></tr>
+          <tr><td>Diana</td><td>29</td><td>Plzeň</td><td>Zodpovědný, sportovec, s nadhledem</td><td>Běh, cyklo, hory</td><td>Spolehlivost, humor, hranice</td></tr>
+          <tr><td>Ema</td><td>26</td><td>Pardubice</td><td>Trpělivý, se zvířaty, kreativní</td><td>Psi, fotografie, cestování</td><td>Ohleduplnost, autenticita</td></tr>
+          <tr><td>Freya</td><td>34</td><td>Liberec</td><td>Respektující, upřímný, klidný</td><td>Cestování, čtení, hudba</td><td>Důvěra, svědomitost, humor</td></tr>
+          <!-- Přidej desítky až stovky řádků pro „tisíce“ řádků webu -->
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <!-- Tabs: preference, hodnoty, komunikace -->
+  <section class="container" id="komponenty">
+    <div class="section-head">
+      <h2>Preference a komunikace</h2>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Sekce preferencí">
+      <button class="tab active" data-target="preference" role="tab" aria-selected="true">Preference</button>
+      <button class="tab" data-target="hodnoty" role="tab" aria-selected="false">Hodnoty</button>
+      <button class="tab" data-target="komunikace" role="tab" aria-selected="false">Komunikace</button>
+    </div>
+    <div class="tab-panels">
+      <div class="panel active" id="preference" role="tabpanel" aria-label="Preference">
+        <div class="card">
+          <h3>Co často hledají</h3>
+          <ul>
+            <li><strong>Partnerský respekt:</strong> Rovnocenné rozhodování, prostor pro oba.</li>
+            <li><strong>Komunikace:</strong> Upřímnost bez zraňování, aktivní naslouchání.</li>
+            <li><strong>Životní styl:</strong> Sdílené zájmy (sport, kultura, cestování).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel" id="hodnoty" role="tabpanel" aria-label="Hodnoty">
+        <div class="card">
+          <h3>Hodnoty</h3>
+          <ul>
+            <li><strong>Důvěra:</strong> Schopnost spolehnout se jeden na druhého.</li>
+            <li><strong>Laskavost:</strong> Ohleduplnost v každodenních situacích.</li>
+            <li><strong>Autenticita:</strong> Být sám sebou a respektovat hranice.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel" id="komunikace" role="tabpanel" aria-label="Komunikace">
+        <div class="card">
+          <h3>Jak začít konverzaci</h3>
+          <ul>
+            <li><strong>Upřímný zájem:</strong> Zeptej se na koníčky nebo hodnoty, ne jen na vzhled.</li>
+            <li><strong>Bezpečnost:</strong> Nikdy nežádej citlivé údaje, komunikuj s respektem.</li>
+            <li><strong>Navázání:</strong> Nabídni setkání na veřejném místě, buď transparentní.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -579,26 +442,34 @@
       <button class="btn btn-outline" id="openGallery">Otevřít slideshow</button>
     </div>
     <div class="grid">
-      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1a?q=80&w=800&auto=format&fit=crop" alt="Octavia exteriér"></div>
-      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1471440671318-51b7d51c29dd?q=80&w=800&auto=format&fit=crop" alt="Interiér"></div>
-      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1625747266692-3b6d571d3c20?q=80&w=800&auto=format&fit=crop" alt="Detail kola"></div>
+      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1511988617509-a57c8a288959?q=80&w=800&auto=format&fit=crop" alt="Růžová nálada — květiny a světlo"></div>
+      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1511453677178-4c55beeb7c0c?q=80&w=800&auto=format&fit=crop" alt="Káva a rozhovor"></div>
+      <div class="card col-4"><img loading="lazy" src="https://images.unsplash.com/photo-1457296898342-cdd24585d095?q=80&w=800&auto=format&fit=crop" alt="Procházka městem"></div>
     </div>
   </section>
 
-  <!-- Recenze -->
-  <section class="container" id="recenze">
+  <!-- Bezpečnost a respekt -->
+  <section class="container" id="bezpecnost">
     <div class="section-head">
-      <h2>Recenze a zkušenosti</h2>
+      <h2>Bezpečnost a respekt</h2>
     </div>
-    <div class="card">
-      <article>
-        <h3>Majitel RS: 1.8T na denní ježdění</h3>
-        <p>„Spotřeba kolem 8–9 l, radost z výkonu, pozor na údržbu turba a cívky.“</p>
-      </article>
-      <article>
-        <h3>TDI ALH: železná spolehlivost</h3>
-        <p>„Jednoduchá mechanika, levný servis. VNT a EGR občas zlobí, ale díly jsou dostupné.“</p>
-      </article>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Základy bezpečné seznamky</h3>
+        <ul>
+          <li><strong>Ochrana soukromí:</strong> Nesdílej adresu, finanční údaje, citlivé informace.</li>
+          <li><strong>První setkání:</strong> Veřejné místo, řekni blízkému, kam jdeš.</li>
+          <li><strong>Respekt hranic:</strong> Vždy s dovolením, bez nátlaku.</li>
+        </ul>
+      </div>
+      <div class="card col-6">
+        <h3>Jak nahlásit problém</h3>
+        <ul>
+          <li><strong>Blokace:</strong> Pokud se necítíš pohodlně, ukonči konverzaci.</li>
+          <li><strong>Záznam:</strong> Ulož si konverzaci, události si poznamenej.</li>
+          <li><strong>Podpora:</strong> Promluv si s přáteli či rodinou, případně vyhledej odbornou pomoc.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -610,39 +481,43 @@
     <div class="card">
       <div class="accordion">
         <div class="accordion-item">
-          <button class="accordion-button">Který motor je nejspolehlivější?</button>
-          <div class="accordion-content">ALH 1.9 TDI je legenda, benzín 2.0 AQY je jednoduchý, 1.8T vyžaduje péči.</div>
+          <button class="accordion-button">Jsou profily skutečné?</button>
+          <div class="accordion-content">Ne. Tento web je fiktivní ukázka designu a struktury. Slouží jako demonstrace.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">Jak poznám facelift?</button>
-          <div class="accordion-content">Nové světlomety, interiér, některé motory EU3, drobné změny nárazníků.</div>
+          <button class="accordion-button">Jak přidám nový profil?</button>
+          <div class="accordion-content">Použij tlačítko „Vytvořit profil“ a vyplň jméno, věk, město, zájmy, hodnoty a hledaný typ.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">Co zkontrolovat při koupi?</button>
-          <div class="accordion-content">Korozi prahů/nápravnice, vůle v podvozku, servis rozvodů, turbo (u TDI/1.8T).</div>
+          <button class="accordion-button">Jak funguje vyhledávání?</button>
+          <div class="accordion-content">Filtruje podle textu, města a umožňuje seřadit podle jména, věku či města.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Modal kontakt -->
+  <!-- Modal: vytvořit profil -->
   <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <h3 id="modalTitle">Kontakt a podpora</h3>
-      <p class="muted">Napiš své požadavky na rozšíření: motory, katalog, fotogalerie, import dat.</p>
-      <form>
-        <label>Tvůj e-mail:<br><input type="email" placeholder="např. jan@domena.cz"></label><br><br>
-        <label>Zpráva:<br><textarea rows="5" class="input" placeholder="Co přesně chceš přidat?"></textarea></label><br><br>
+      <h3 id="modalTitle">Vytvořit fiktivní profil</h3>
+      <p class="muted">Vyplň základní informace. Profil se přidá do tabulky.</p>
+      <form id="profileForm">
+        <label>Jméno:<br><input type="text" id="fName" placeholder="např. Anna"></label><br><br>
+        <label>Věk:<br><input type="number" id="fAge" placeholder="např. 27" min="18" max="90"></label><br><br>
+        <label>Město:<br><input type="text" id="fCity" placeholder="např. Praha"></label><br><br>
+        <label>Hledaný typ:<br><textarea rows="3" id="fType" class="input" placeholder="Empatický, se smyslem pro humor..."></textarea></label><br><br>
+        <label>Zájmy:<br><input type="text" id="fInterests" placeholder="např. běh, knihy, cestování"></label><br><br>
+        <label>Hodnoty:<br><input type="text" id="fValues" placeholder="např. upřímnost, respekt"></label><br><br>
         <div style="display:flex; gap:10px;">
           <button type="button" class="btn btn-outline" id="closeModal">Zavřít</button>
-          <button type="button" class="btn" id="sendMsg">Odeslat</button>
+          <button type="submit" class="btn" id="saveProfile">Uložit</button>
         </div>
       </form>
     </div>
   </div>
 
   <!-- Toast -->
-  <div class="toast" id="toast">Zpráva odeslána. Ozveme se brzy.</div>
+  <div class="toast" id="toast">Profil uložen.</div>
 
   <!-- Skripty -->
   <script>
@@ -654,7 +529,6 @@
       html.setAttribute('data-theme', isLight ? 'dark' : 'light');
       localStorage.setItem('theme', isLight ? 'dark' : 'light');
     });
-    // Načtení tématu
     (function() {
       const saved = localStorage.getItem('theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
@@ -686,39 +560,63 @@
     openModal?.addEventListener('click', () => { modalBackdrop.classList.add('open'); modalBackdrop.style.display = 'grid'; });
     closeModal?.addEventListener('click', () => { modalBackdrop.classList.remove('open'); modalBackdrop.style.display = 'none'; });
 
-    // Toast
-    const sendMsg = document.getElementById('sendMsg');
+    // Toast helper
     const toast = document.getElementById('toast');
-    sendMsg?.addEventListener('click', () => {
+    function showToast(msg) {
+      toast.textContent = msg;
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Přidat profil do tabulky (demo)
+    const profileForm = document.getElementById('profileForm');
+    profileForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('fName').value.trim();
+      const age = document.getElementById('fAge').value.trim();
+      const city = document.getElementById('fCity').value.trim();
+      const type = document.getElementById('fType').value.trim();
+      const interests = document.getElementById('fInterests').value.trim();
+      const values = document.getElementById('fValues').value.trim();
+      if (!name || !age || !city || !type || !interests || !values) {
+        showToast('Doplň všechna pole.');
+        return;
+      }
+      const tbody = document.querySelector('#tableProfiles tbody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${name}</td><td>${age}</td><td>${city}</td><td>${type}</td><td>${interests}</td><td>${values}</td>`;
+      tbody.appendChild(tr);
       modalBackdrop.style.display = 'none';
+      showToast('Profil uložen.');
+      profileForm.reset();
     });
 
-    // Jednoduché filtrování motorů
-    const engineSearch = document.getElementById('engineSearch');
-    const engineFuel = document.getElementById('engineFuel');
-    const engineSort = document.getElementById('engineSort');
-    function filterEngines() {
-      const q = engineSearch.value.toLowerCase();
-      const fuel = engineFuel.value;
-      ['tableBenzin','tableDiesel'].forEach(id => {
-        const rows = document.querySelectorAll('#' + id + ' tbody tr');
-        rows.forEach(r => {
-          const text = r.innerText.toLowerCase();
-          const isDiesel = id === 'tableDiesel';
-          const matchFuel = !fuel || (fuel === 'nafta' && isDiesel) || (fuel === 'benzín' && !isDiesel);
-          r.style.display = (text.includes(q) && matchFuel) ? '' : 'none';
-        });
+    // Filtrování profilů
+    const profileSearch = document.getElementById('profileSearch');
+    const profileCity = document.getElementById('profileCity');
+    const profileSort = document.getElementById('profileSort');
+    function filterProfiles() {
+      const q = profileSearch.value.toLowerCase();
+      const city = profileCity.value.toLowerCase();
+      document.querySelectorAll('#tableProfiles tbody tr').forEach(r => {
+        const name = r.children[0].innerText.toLowerCase();
+        const age = r.children[1].innerText.toLowerCase();
+        const c = r.children[2].innerText.toLowerCase();
+        const type = r.children[3].innerText.toLowerCase();
+        const interests = r.children[4].innerText.toLowerCase();
+        const values = r.children[5].innerText.toLowerCase();
+        const rowText = [name, age, c, type, interests, values].join(' ');
+        const match = rowText.includes(q) && (!city || c === city);
+        r.style.display = match ? '' : 'none';
       });
     }
-    engineSearch?.addEventListener('input', filterEngines);
-    engineFuel?.addEventListener('change', filterEngines);
+    profileSearch?.addEventListener('input', filterProfiles);
+    profileCity?.addEventListener('change', filterProfiles);
 
-    // Řazení podle sloupečku (demo)
+    // Řazení tabulky
     function sortTable(tableId, keyIndex, numeric = false) {
       const tbody = document.querySelector('#' + tableId + ' tbody');
-      const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display !== 'none');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
       rows.sort((a,b) => {
         const av = a.children[keyIndex].innerText;
         const bv = b.children[keyIndex].innerText;
@@ -732,28 +630,12 @@
       });
       rows.forEach(r => tbody.appendChild(r));
     }
-    engineSort?.addEventListener('change', () => {
-      const val = engineSort.value;
-      if (val === 'power') { sortTable('tableBenzin', 2, true); sortTable('tableDiesel', 2, true); }
-      if (val === 'code') { sortTable('tableBenzin', 0); sortTable('tableDiesel', 0); }
-      if (val === 'year') { sortTable('tableBenzin', 4); sortTable('tableDiesel', 4); }
+    profileSort?.addEventListener('change', () => {
+      const val = profileSort.value;
+      if (val === 'name') sortTable('tableProfiles', 0);
+      if (val === 'age') sortTable('tableProfiles', 1, true);
+      if (val === 'city') sortTable('tableProfiles', 2);
     });
-
-    // Katalog dílů — filtrování
-    const partSearch = document.getElementById('partSearch');
-    const partCat = document.getElementById('partCat');
-    function filterParts() {
-      const q = partSearch.value.toLowerCase();
-      const cat = partCat.value;
-      document.querySelectorAll('#tableParts tbody tr').forEach(r => {
-        const name = r.children[0].innerText.toLowerCase();
-        const c = r.children[1].innerText.toLowerCase();
-        const match = name.includes(q) && (!cat || c === cat);
-        r.style.display = match ? '' : 'none';
-      });
-    }
-    partSearch?.addEventListener('input', filterParts);
-    partCat?.addEventListener('change', filterParts);
 
     // Galerie — modal (demo)
     const openGallery = document.getElementById('openGallery');
@@ -767,29 +649,29 @@
     <div class="footgrid">
       <div>
         <h3>O projektu</h3>
-        <p class="muted">Cílem je vytvořit nejobsáhlejší encyklopedii Octavie I v češtině.</p>
+        <p class="muted">Fiktivní růžová seznamka — ukázka moderního designu, bezpečné komunikace a filtrů profilů.</p>
       </div>
       <div>
         <h3>Navigace</h3>
         <ul>
-          <li><a href="#technika">Technika</a></li>
-          <li><a href="#servis">Servis</a></li>
-          <li><a href="#katalog">Díly</a></li>
+          <li><a href="#profily">Profily</a></li>
+          <li><a href="#filtr">Vyhledávání</a></li>
+          <li><a href="#bezpecnost">Bezpečnost</a></li>
         </ul>
       </div>
       <div>
         <h3>Komunita</h3>
         <ul>
-          <li><a href="#recenze">Recenze</a></li>
+          <li><a href="#galerie">Galerie</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div>
         <h3>Kontakt</h3>
-        <p class="muted">Napiš a rozšíříme sekce o data, tabulky a fotky.</p>
+        <p class="muted">Chceš přidat další profily? Ozvi se a rozšíříme katalog.</p>
       </div>
     </div>
-    <div class="copyright">© Octavia I Encyclopedia</div>
+    <div class="copyright">© Láska v růžové</div>
   </footer>
 </body>
 </html>
