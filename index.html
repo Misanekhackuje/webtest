@@ -1,4 +1,1013 @@
-<h1>https://www.circuitbasics.com/raspberry-pi-touchscreen-calibration-screen-rotation/</h1>
-<h1>https://robu.in/how-to-calibrate-raspberry-pi-touch-screen/</h1>
-<h1>https://www.reshine-display.com/how-to-connect-raspberry-pi-touchscreen-display.html</h1>
-<h1>https://www.raspberrypi.com/documentation/accessories/touch-display-2.html#customise-touchscreen-settings</h1>
+<!doctype html>
+<html lang="cs" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PYTHON // Cyberpunk Encyklopedie</title>
+  <meta name="description" content="Neon cyberpunk encyklopedie jazyka Python: syntaxe, standardní knihovna, async, typování, testování, data science, web, packaging, bezpečnost a ukázky.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* -----------------------
+       Cyberpunk neon design
+    ----------------------- */
+    :root {
+      --bg: #0a0f14;
+      --bg-elev: #0f1621;
+      --text: #c7d2e5;
+      --muted: #7b8aa0;
+      --neon-pink: #ff3b8d;
+      --neon-cyan: #2cf1ff;
+      --neon-violet: #7a5cff;
+      --neon-green: #2dfc8b;
+      --danger: #ff5e5e;
+      --warn: #ffcc4d;
+      --ok: #00e5a8;
+
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --radius-xs: 10px;
+      --maxw: 1240px;
+
+      --step--1: clamp(0.9rem, 0.86rem + 0.12vw, 1rem);
+      --step-0: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+      --step-1: clamp(1.3rem, 1.1rem + 0.6vw, 1.6rem);
+      --step-2: clamp(1.7rem, 1.3rem + 1.2vw, 2.3rem);
+      --step-3: clamp(2.5rem, 1.8rem + 1.8vw, 3.2rem);
+      --step-4: clamp(3.4rem, 2.4rem + 2.6vw, 4.2rem);
+    }
+    [data-theme="light"] {
+      --bg: #f4f7fb;
+      --bg-elev: #ffffff;
+      --text: #0c1220;
+      --muted: #4a5770;
+      --neon-pink: #b1005f;
+      --neon-cyan: #008fa0;
+      --neon-violet: #4b34d6;
+      --neon-green: #0aa06a;
+      --shadow: 0 16px 50px rgba(11, 18, 32, 0.15);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { padding:0; margin:0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: radial-gradient(1200px 600px at 20% 10%, #0c1320 0%, #090d12 60%, #070a0d 100%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: var(--step-0);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+    a { color: var(--neon-cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .neon {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 8px color-mix(in oklab, var(--neon-cyan), transparent 60%),
+                   0 0 18px color-mix(in oklab, var(--neon-cyan), transparent 80%);
+    }
+    .pink { color: var(--neon-pink); }
+    .violet { color: var(--neon-violet); }
+    .green { color: var(--neon-green); }
+
+    img { max-width: 100%; border-radius: var(--radius-xs); }
+    .container { width: min(100% - 32px, var(--maxw)); margin-inline: auto; }
+
+    /* Header & nav */
+    header {
+      position: sticky; top: 0; z-index: 999;
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--bg-elev), transparent 0%), color-mix(in oklab, var(--bg-elev), transparent 30%)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="120"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="%230f1621"/><stop offset="1" stop-color="%230a0f14"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/></svg>');
+      backdrop-filter: saturate(1.8) blur(12px);
+      border-bottom: 1px solid color-mix(in oklab, var(--neon-cyan), transparent 85%);
+    }
+    .topbar {
+      display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center;
+      padding: 12px 0;
+    }
+    .logo {
+      display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:0.2px;
+    }
+    .logo-badge {
+      width:40px; height:40px; border-radius:12px;
+      background: conic-gradient(from 20deg, var(--neon-cyan), var(--neon-violet), var(--neon-pink), var(--neon-cyan));
+      box-shadow: 0 0 12px color-mix(in oklab, var(--neon-cyan), transparent 50%), var(--shadow);
+    }
+    nav ul { display:flex; flex-wrap: wrap; gap: 8px 18px; list-style:none; padding:0; margin:0; }
+    nav a {
+      display:inline-block; padding:10px 14px; border-radius: 999px;
+      background: color-mix(in oklab, var(--bg-elev), transparent 8%);
+      border: 1px solid color-mix(in oklab, var(--neon-violet), transparent 70%);
+      box-shadow: inset 0 0 18px color-mix(in oklab, var(--neon-violet), transparent 90%);
+    }
+    .tools { display:flex; gap:8px; align-items:center; }
+    .btn, button {
+      appearance: none; border: none; cursor: pointer;
+      padding:10px 14px; border-radius: 999px;
+      background: linear-gradient(180deg, color-mix(in oklab, var(--neon-pink), white 8%), var(--neon-pink));
+      color:#fff; font-weight:700; box-shadow: 0 8px 28px color-mix(in oklab, var(--neon-pink), transparent 70%);
+      letter-spacing: 0.2px;
+    }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid color-mix(in oklab, var(--neon-cyan), transparent 40%);
+    }
+    .theme-toggle { width:44px; height:44px; display:grid; place-items:center; border-radius:999px; }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1.3fr 1fr; gap: 28px; padding: 36px 0 24px; }
+    .hero-card {
+      background: linear-gradient(135deg, color-mix(in oklab, var(--bg-elev), transparent 0%), color-mix(in oklab, #0b1422, transparent 0%));
+      border-radius: var(--radius); padding: 24px;
+      box-shadow: var(--shadow); border: 1px solid color-mix(in oklab, var(--neon-cyan), transparent 80%);
+    }
+    .hero h1 { font-size: var(--step-4); margin:0 0 8px; }
+    .hero p.lead { font-size: var(--step-1); color: var(--muted); margin:0 0 16px; }
+    .chipset { display:flex; gap:10px; flex-wrap:wrap; }
+    .chip {
+      padding:8px 12px; border-radius:999px;
+      background: color-mix(in oklab, var(--neon-violet), transparent 85%);
+      border: 1px solid color-mix(in oklab, var(--neon-violet), transparent 70%);
+      color: var(--muted); font-weight:600;
+    }
+
+    /* Sections & cards */
+    section { padding: 24px 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; margin-bottom: 12px; }
+    .section-head h2 { font-size: var(--step-2); margin:0; }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: 1 / -1; }
+    .card {
+      background: linear-gradient(180deg, color-mix(in oklab, var(--bg-elev), transparent 0%), color-mix(in oklab, #0c1525, transparent 0%));
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in oklab, var(--neon-cyan), transparent 75%);
+      box-shadow: 0 8px 28px color-mix(in oklab, var(--neon-cyan), transparent 90%), var(--shadow);
+      padding: 18px;
+    }
+    .card h3 { margin-top:0; font-size: var(--step-1); }
+    .muted { color: var(--muted); }
+
+    /* Tabs & accordion */
+    .tabs { display:flex; gap:8px; flex-wrap:wrap; }
+    .tab { padding:10px 14px; border-radius:999px; border:1px solid color-mix(in oklab, var(--neon-cyan), transparent 60%); cursor:pointer; }
+    .tab.active { background: var(--neon-cyan); color:#001319; border-color: transparent; }
+    .tab-panels > .panel { display:none; }
+    .tab-panels > .panel.active { display:block; }
+    .accordion-item { border-top: 1px solid color-mix(in oklab, var(--neon-violet), transparent 75%); }
+    .accordion-button {
+      width:100%; text-align:left; background:transparent; color:var(--text);
+      padding:14px 0; font-weight:700;
+    }
+    .accordion-content { display:none; padding: 0 0 14px 0; color:var(--muted); }
+    .accordion-item.open .accordion-content { display:block; }
+
+    /* Tables */
+    table { width:100%; border-collapse: collapse; border-radius: var(--radius-xs); overflow:hidden; }
+    thead th {
+      text-align:left; padding:12px; font-weight:700; background: color-mix(in oklab, var(--bg-elev), transparent 6%);
+      position:sticky; top:0;
+    }
+    tbody td { padding:12px; border-top: 1px solid color-mix(in oklab, var(--neon-violet), transparent 85%); }
+    tbody tr:hover { background: color-mix(in oklab, var(--neon-cyan), transparent 90%); }
+    .table-tools { display:flex; gap:12px; margin-bottom:8px; }
+    .input, input, select, textarea {
+      padding:10px 12px; border-radius: 10px; border:1px solid color-mix(in oklab, var(--neon-cyan), transparent 60%);
+      background: color-mix(in oklab, var(--bg-elev), transparent 6%); color:var(--text);
+    }
+
+    /* Code blocks */
+    pre {
+      background: #0b1320;
+      color: #cfe6ff;
+      border: 1px solid color-mix(in oklab, var(--neon-violet), transparent 65%);
+      border-radius: 12px;
+      padding: 14px;
+      overflow: auto;
+      box-shadow: inset 0 0 24px rgba(0, 255, 255, 0.08);
+    }
+    code { font-family: 'JetBrains Mono', monospace; }
+
+    /* Modal & toast */
+    .modal-backdrop { position: fixed; inset:0; background: rgba(0,0,0,0.55); display:none; place-items:center; z-index: 1000; }
+    .modal { width: min(860px, 95vw); background: var(--bg-elev); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; border: 1px solid color-mix(in oklab, var(--neon-pink), transparent 65%); }
+    .modal.open { display:grid; }
+    .toast {
+      position: fixed; right: 18px; bottom: 18px; background: var(--bg-elev);
+      border:1px solid color-mix(in oklab, var(--neon-cyan), transparent 75%); border-radius: 12px; padding: 12px 16px;
+      box-shadow: var(--shadow); display:none;
+    }
+    .toast.show { display:block; }
+
+    /* Footer */
+    footer { margin-top: 28px; padding: 28px 0; border-top: 1px solid color-mix(in oklab, var(--neon-violet), transparent 80%); }
+    .footgrid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .copyright { color: var(--muted); font-size: var(--step--1); margin-top: 12px; }
+
+    /* Responsivita */
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(6, 1fr); }
+      .col-8 { grid-column: span 6; }
+      .col-6 { grid-column: span 6; }
+      .col-4 { grid-column: span 6; }
+      nav ul { display:none; }
+    }
+    @media (max-width: 560px) {
+      .footgrid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container topbar">
+      <div class="logo">
+        <span class="logo-badge" aria-hidden="true"></span>
+        <div>
+          <div class="neon mono">PYTHON // Cyberpunk</div>
+          <small class="muted">Kompletní encyklopedie jazyka Python</small>
+        </div>
+      </div>
+      <nav aria-label="Hlavní navigace">
+        <ul>
+          <li><a href="#uvod">Úvod</a></li>
+          <li><a href="#syntaxe">Syntaxe</a></li>
+          <li><a href="#typy">Datové typy</a></li>
+          <li><a href="#funkce">Funkce &amp; moduly</a></li>
+          <li><a href="#oop">OOP</a></li>
+          <li><a href="#vyjimky">Výjimky</a></li>
+          <li><a href="#stdlib">Standardní knihovna</a></li>
+          <li><a href="#concurrency">Souběh &amp; async</a></li>
+          <li><a href="#typing">Typování &amp; dataclasses</a></li>
+          <li><a href="#io">Souborový systém &amp; IO</a></li>
+          <li><a href="#network">Síť &amp; API</a></li>
+          <li><a href="#testing">Testování</a></li>
+          <li><a href="#packaging">Venv &amp; balíčkování</a></li>
+          <li><a href="#datascience">Data science</a></li>
+          <li><a href="#web">Web frameworky</a></li>
+          <li><a href="#security">Bezpečnost</a></li>
+          <li><a href="#cheatsheets">Cheat-sheety</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="tools">
+        <button class="btn btn-outline" id="openModal">Mini playground</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Přepnout téma">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container" id="uvod">
+    <div class="hero-card">
+      <h1 class="neon">PYTHON</h1>
+      <p class="lead">Neonová encyklopedie: od základů po pokročilé témata, se spoustou ukázek a strukturovanými přehledy.</p>
+      <div class="chipset" role="list" aria-label="Rychlé štítky">
+        <span class="chip" role="listitem">Syntaxe</span>
+        <span class="chip" role="listitem">Standardní knihovna</span>
+        <span class="chip" role="listitem">Asyncio</span>
+        <span class="chip" role="listitem">Typing</span>
+        <span class="chip" role="listitem">Data science</span>
+        <span class="chip" role="listitem">Web</span>
+      </div>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="#syntaxe" class="btn">Začít se syntaxí</a>
+        <a href="#stdlib" class="btn btn-outline">Prozkoumat stdlib</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img src="https://images.unsplash.com/photo-1520523839898-6f1e154e0c2b?q=80&w=1200&auto=format&fit=crop" alt="Neonové město a kód — cyberpunk nálada">
+      <p class="muted">Ilustrační neon — nahraď vlastní grafikou (SVG grid, glitch efekty).</p>
+    </div>
+  </section>
+
+  <!-- Syntaxe -->
+  <section class="container" id="syntaxe">
+    <div class="section-head">
+      <h2>Syntaxe a základy</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Proměnné a typy</h3>
+        <pre class="mono"><code># komentář
+x = 42          # int
+pi = 3.1415     # float
+name = "Python" # str
+is_ready = True # bool
+items = [1, 2, 3]   # list
+user = {"name": "Neo", "lvl": 7}  # dict
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Řídící struktury</h3>
+        <pre class="mono"><code>if x > 10:
+    print("víc než 10")
+elif x == 10:
+    print("deset")
+else:
+    print("méně")
+
+for i in range(5):
+    print(i)
+
+while True:
+    break
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Funkce a lambdy</h3>
+        <pre class="mono"><code>def greet(name: str) -> str:
+    return f"Ahoj, {name}!"
+
+add = lambda a, b: a + b
+
+def power(x, *, exp=2):
+    return x ** exp
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Seznamová porozumění</h3>
+        <pre class="mono"><code>squares = [n*n for n in range(10)]
+evens = [n for n in range(20) if n % 2 == 0]
+pairs = [(a, b) for a in range(3) for b in range(3)]
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Datové typy -->
+  <section class="container" id="typy">
+    <div class="section-head">
+      <h2>Datové typy a kolekce</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Základní typy</h3>
+        <ul>
+          <li><strong>int/float:</strong> čísla, aritmetika, zaokrouhlení.</li>
+          <li><strong>str:</strong> řetězce, f-stringy, metody .upper(), .split().</li>
+          <li><strong>bool:</strong> True/False, logika, krátké vyhodnocení.</li>
+        </ul>
+      </div>
+      <div class="card col-6">
+        <h3>Kolekce</h3>
+        <ul>
+          <li><strong>list/tuple:</strong> pořadí, mutabilita, slicing.</li>
+          <li><strong>set:</strong> množiny, operace union/intersection.</li>
+          <li><strong>dict:</strong> páry klíč–hodnota, .items(), .get().</li>
+        </ul>
+      </div>
+      <div class="card col-12">
+        <h3>Nezbytné operace</h3>
+        <pre class="mono"><code>arr = [3,1,4]
+arr.append(1); arr.sort()
+s = {1,2,2,3}
+d = {"a": 1}; d.update({"b": 2})
+t = (1,2,3); a,b,c = t
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funkce & moduly -->
+  <section class="container" id="funkce">
+    <div class="section-head">
+      <h2>Funkce, moduly a balíčky</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Definice a parametry</h3>
+        <pre class="mono"><code>def f(a, b=0, *args, **kwargs):
+    print(a, b, args, kwargs)
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Importy</h3>
+        <pre class="mono"><code>import math
+from pathlib import Path
+from pkg import util as u
+</code></pre>
+      </div>
+      <div class="card col-12">
+        <h3>Struktura balíčku</h3>
+        <pre class="mono"><code>project/
+  pkg/
+    __init__.py
+    core.py
+    utils/
+      __init__.py
+      io.py
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- OOP -->
+  <section class="container" id="oop">
+    <div class="section-head">
+      <h2>OOP: třídy, dědičnost, protokoly</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Třídy</h3>
+        <pre class="mono"><code>class Player:
+    def __init__(self, name: str, hp: int = 100):
+        self.name = name
+        self.hp = hp
+
+    def hit(self, dmg: int):
+        self.hp = max(0, self.hp - dmg)
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Dědičnost a mixiny</h3>
+        <pre class="mono"><code>class Mage(Player):
+    def cast(self):
+        return "⚡️"
+
+class LoggerMixin:
+    def log(self, msg): print(msg)
+
+class BattleMage(Mage, LoggerMixin):
+    pass
+</code></pre>
+      </div>
+      <div class="card col-12">
+        <h3>Speciální metody</h3>
+        <pre class="mono"><code>class Vec2:
+    def __init__(self, x, y): self.x, self.y = x, y
+    def __repr__(self): return f"Vec2({self.x},{self.y})"
+    def __add__(self, o): return Vec2(self.x + o.x, self.y + o.y)
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Výjimky -->
+  <section class="container" id="vyjimky">
+    <div class="section-head">
+      <h2>Výjimky a kontexty</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Try/except/finally</h3>
+        <pre class="mono"><code>try:
+    risky()
+except ValueError as e:
+    print("Chyba:", e)
+finally:
+    cleanup()
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Kontextové manažery</h3>
+        <pre class="mono"><code>with open("data.txt") as f:
+    for line in f:
+        print(line.strip())
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Standardní knihovna -->
+  <section class="container" id="stdlib">
+    <div class="section-head">
+      <h2>Standardní knihovna: přehled modulů</h2>
+      <div class="table-tools">
+        <input type="search" id="moduleSearch" placeholder="Hledat modul (např. json, re, pathlib)">
+        <select id="moduleCat">
+          <option value="">Kategorie (vše)</option>
+          <option value="io">IO</option>
+          <option value="text">Text</option>
+          <option value="os">OS</option>
+          <option value="time">Čas</option>
+          <option value="net">Síť</option>
+          <option value="data">Data</option>
+          <option value="debug">Debug</option>
+        </select>
+        <select id="moduleSort">
+          <option value="name">Podle názvu</option>
+          <option value="cat">Podle kategorie</option>
+        </select>
+      </div>
+    </div>
+    <div class="card">
+      <table id="tableStdlib">
+        <thead>
+          <tr>
+            <th>Modul</th>
+            <th>Kategorie</th>
+            <th>Stručné použití</th>
+            <th>Příklady</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>pathlib</td><td>IO</td><td>Práce s cestami</td><td>Path("dir").glob("*.py")</td></tr>
+          <tr><td>os</td><td>OS</td><td>Procesy, prostředí</td><td>os.getenv("HOME")</td></tr>
+          <tr><td>sys</td><td>OS</td><td>Interakce s interpretem</td><td>sys.argv, sys.path</td></tr>
+          <tr><td>json</td><td>Data</td><td>Serializace JSON</td><td>json.dumps(obj)</td></tr>
+          <tr><td>re</td><td>Text</td><td>Regulární výrazy</td><td>re.findall(r"\\w+", s)</td></tr>
+          <tr><td>logging</td><td>Debug</td><td>Logování</td><td>logging.info("msg")</td></tr>
+          <tr><td>datetime</td><td>Čas</td><td>Datum/čas</td><td>datetime.now()</td></tr>
+          <tr><td>time</td><td>Čas</td><td>Časové funkce</td><td>time.sleep(1)</td></tr>
+          <tr><td>functools</td><td>Text</td><td>Decoratory, partial</td><td>@lru_cache</td></tr>
+          <tr><td>itertools</td><td>Data</td><td>Kombinatorika</td><td>chain, product</td></tr>
+          <tr><td>collections</td><td>Data</td><td>deque, Counter</td><td>Counter(words)</td></tr>
+          <tr><td>csv</td><td>IO</td><td>CSV čtení/zápis</td><td>csv.DictReader(f)</td></tr>
+          <tr><td>subprocess</td><td>OS</td><td>Spouštění procesů</td><td>run(["ls"])</td></tr>
+          <tr><td>argparse</td><td>OS</td><td>CLI parsování</td><td>ArgumentParser()</td></tr>
+          <tr><td>socket</td><td>Síť</td><td>TCP/UDP sokety</td><td>socket.socket()</td></tr>
+          <!-- Přidej desítky dalších modulů: gzip, tarfile, mmap, struct, hashlib, secrets, urllib, http, xml, sqlite3, math, statistics, decimal, fractions, typing, dataclasses, enum, contextlib, threading, multiprocessing, asyncio... -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Souběh & async -->
+  <section class="container" id="concurrency">
+    <div class="section-head">
+      <h2>Souběh, paralelizace a asyncio</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Threading</h3>
+        <pre class="mono"><code>import threading
+
+def work():
+    print("vlákno")
+
+t = threading.Thread(target=work)
+t.start(); t.join()
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Multiprocessing</h3>
+        <pre class="mono"><code>from multiprocessing import Process, Queue
+
+def worker(q):
+    q.put("ready")
+
+q = Queue()
+p = Process(target=worker, args=(q,))
+p.start(); print(q.get()); p.join()
+</code></pre>
+      </div>
+      <div class="card col-12">
+        <h3>Asyncio</h3>
+        <pre class="mono"><code>import asyncio
+
+async def fetch(i):
+    await asyncio.sleep(0.1)
+    return f"ok {i}"
+
+async def main():
+    results = await asyncio.gather(*(fetch(i) for i in range(5)))
+    print(results)
+
+asyncio.run(main())
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typování & dataclasses -->
+  <section class="container" id="typing">
+    <div class="section-head">
+      <h2>Typování, protokoly, dataclasses</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Typing</h3>
+        <pre class="mono"><code>from typing import List, Dict, Optional, Protocol
+
+class SupportsLen(Protocol):
+    def __len__(self) -> int: ...
+
+def total(xs: List[int]) -> int:
+    return sum(xs)
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Dataclasses</h3>
+        <pre class="mono"><code>from dataclasses import dataclass
+
+@dataclass
+class Config:
+    host: str = "localhost"
+    port: int = 8000
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- IO -->
+  <section class="container" id="io">
+    <div class="section-head">
+      <h2>Souborový systém a IO</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Pathlib &amp; files</h3>
+        <pre class="mono"><code>from pathlib import Path
+p = Path("data") / "file.txt"
+p.write_text("hello")
+print(p.read_text())
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>CSV/JSON</h3>
+        <pre class="mono"><code>import csv, json
+with open("data.csv") as f:
+    rows = list(csv.DictReader(f))
+
+data = {"users": rows}
+print(json.dumps(data, indent=2))
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Síť & API -->
+  <section class="container" id="network">
+    <div class="section-head">
+      <h2>Síť, HTTP a API</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Sockety</h3>
+        <pre class="mono"><code>import socket
+s = socket.socket()
+s.bind(("localhost", 9000))
+s.listen()
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>HTTP klient (requests)</h3>
+        <pre class="mono"><code>import requests
+r = requests.get("https://example.com")
+print(r.status_code, r.text[:80])
+</code></pre>
+      </div>
+      <div class="card col-12">
+        <h3>API server (FastAPI)</h3>
+        <pre class="mono"><code>from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/hello")
+def hello():
+    return {"msg": "world"}
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testování -->
+  <section class="container" id="testing">
+    <div class="section-head">
+      <h2>Testování: unittest, pytest</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>unittest</h3>
+        <pre class="mono"><code>import unittest
+
+class TestMath(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(1 + 1, 2)
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>pytest</h3>
+        <pre class="mono"><code>def test_len():
+    assert len([1,2,3]) == 3
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packaging -->
+  <section class="container" id="packaging">
+    <div class="section-head">
+      <h2>Virtuální prostředí, pip, build, poetry</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>venv &amp; pip</h3>
+        <pre class="mono"><code># vytvoření venv
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
+pip install requests
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>poetry</h3>
+        <pre class="mono"><code>poetry init
+poetry add fastapi
+poetry run python app.py
+</code></pre>
+      </div>
+      <div class="card col-12">
+        <h3>Distribuce (wheel)</h3>
+        <pre class="mono"><code>python -m build   # vytvoří sdist a wheel
+pip install dist/pkg-0.1.0-py3-none-any.whl
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data science -->
+  <section class="container" id="datascience">
+    <div class="section-head">
+      <h2>Data science: numpy, pandas, vizualizace</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>NumPy</h3>
+        <pre class="mono"><code>import numpy as np
+a = np.arange(9).reshape(3,3)
+print(a.mean(), a.sum())
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Pandas</h3>
+        <pre class="mono"><code>import pandas as pd
+df = pd.DataFrame({"x":[1,2,3],"y":[9,8,7]})
+print(df.describe())
+</code></pre>
+      </div>
+      <div class="card col-12">
+        <h3>Matplotlib</h3>
+        <pre class="mono"><code>import matplotlib.pyplot as plt
+plt.plot([1,2,3],[3,1,4]); plt.show()
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web frameworky -->
+  <section class="container" id="web">
+    <div class="section-head">
+      <h2>Web: Flask, FastAPI, Django</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-4">
+        <h3>Flask</h3>
+        <pre class="mono"><code>from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return "hello"
+</code></pre>
+      </div>
+      <div class="card col-4">
+        <h3>FastAPI</h3>
+        <pre class="mono"><code>from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/")
+def index():
+    return {"ok": True}
+</code></pre>
+      </div>
+      <div class="card col-4">
+        <h3>Django</h3>
+        <pre class="mono"><code># django-admin startproject mysite
+# python manage.py runserver
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bezpečnost -->
+  <section class="container" id="security">
+    <div class="section-head">
+      <h2>Bezpečnost, kryptografie, tajemství</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>hashlib &amp; secrets</h3>
+        <pre class="mono"><code>import hashlib, secrets
+salt = secrets.token_bytes(16)
+digest = hashlib.pbkdf2_hmac("sha256", b"pwd", salt, 100_000)
+</code></pre>
+      </div>
+      <div class="card col-6">
+        <h3>Bezpečné konfigurace</h3>
+        <ul>
+          <li><strong>Tajné klíče:</strong> načítej z env proměnných, nepíš do repo.</li>
+          <li><strong>Aktualizace:</strong> pravidelně aktualizuj závislosti.</li>
+          <li><strong>Validace vstupů:</strong> nikdy nedůvěřuj externím datům.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cheat-sheety -->
+  <section class="container" id="cheatsheets">
+    <div class="section-head">
+      <h2>Cheat-sheety a mini výpisky</h2>
+    </div>
+    <div class="grid">
+      <div class="card col-4">
+        <h3>F-stringy</h3>
+        <pre class="mono"><code>user = "Neo"
+print(f"{user=}")     # user='Neo'
+print(f"{10/3:.2f}")  # 3.33
+</code></pre>
+      </div>
+      <div class="card col-4">
+        <h3>List comprehensions</h3>
+        <pre class="mono"><code>[n*n for n in range(10) if n%2==0]
+</code></pre>
+      </div>
+      <div class="card col-4">
+        <h3>Decoratory</h3>
+        <pre class="mono"><code>def log(fn):
+    def wrap(*a, **k):
+        print("call", fn.__name__)
+        return fn(*a, **k)
+    return wrap
+</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container" id="faq">
+    <div class="section-head">
+      <h2>Časté dotazy</h2>
+    </div>
+    <div class="card">
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-button">Kde začít s Pythonem?</button>
+          <div class="accordion-content">Začni syntaxí, typy a funkcemi. Poté standardní knihovna, testování a postupně async/typing.</div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button">Jak si udržet čistý kód?</button>
+          <div class="accordion-content">Dodržuj PEP8, automatizuj (black, isort), testuj (pytest), typuj (mypy) a loguj (logging).</div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button">Jak balit a distribuovat balíček?</button>
+          <div class="accordion-content">venv/pip pro vývoj, poetry pro závislosti, build na wheel, publikace přes index (např. artefakt server).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal: mini playground (statický demo) -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle" class="neon mono">Mini playground</h3>
+      <p class="muted">Zadej krátký snippet (textově) — jen UI ukázka, neprovádí kód.</p>
+      <form id="snippetForm">
+        <label>Kód (text):<br><textarea rows="6" id="snippetText" class="input mono" placeholder="print('hello cyberpunk')"></textarea></label><br><br>
+        <div style="display:flex; gap:10px;">
+          <button type="button" class="btn btn-outline" id="closeModal">Zavřít</button>
+          <button type="submit" class="btn" id="runSnippet">Uložit do výstřižků</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Snippet uložen.</div>
+
+  <!-- Skripty -->
+  <script>
+    // Téma
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle?.addEventListener('click', () => {
+      const html = document.documentElement;
+      const isLight = html.getAttribute('data-theme') === 'light';
+      html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+    });
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+
+    // Tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.dataset.target;
+        document.querySelectorAll('.tab-panels .panel').forEach(p => p.classList.remove('active'));
+        document.getElementById(target)?.classList.add('active');
+      });
+    });
+
+    // Accordion
+    document.querySelectorAll('.accordion-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        item.classList.toggle('open');
+      });
+    });
+
+    // Modal
+    const openModal = document.getElementById('openModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    openModal?.addEventListener('click', () => { modalBackdrop.classList.add('open'); modalBackdrop.style.display = 'grid'; });
+    closeModal?.addEventListener('click', () => { modalBackdrop.classList.remove('open'); modalBackdrop.style.display = 'none'; });
+
+    // Toast helper
+    const toast = document.getElementById('toast');
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Snippet uložit (demo)
+    const snippetForm = document.getElementById('snippetForm');
+    snippetForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = document.getElementById('snippetText').value.trim();
+      if (!text) { showToast('Zadej kód.'); return; }
+      // Uložíme pod "Cheat-sheety" jako nový snippet (demo)
+      const cheats = document.querySelector('#cheatsheets .grid');
+      const card = document.createElement('div');
+      card.className = 'card col-4';
+      card.innerHTML = '<h3>Uložený snippet</h3><pre class="mono"><code>'+text.replace(/</g,'&lt;')+'</code></pre>';
+      cheats?.appendChild(card);
+      modalBackdrop.style.display = 'none';
+      showToast('Snippet uložen.');
+      snippetForm.reset();
+    });
+
+    // Stdlib: filtrování/řazení
+    const moduleSearch = document.getElementById('moduleSearch');
+    const moduleCat = document.getElementById('moduleCat');
+    const moduleSort = document.getElementById('moduleSort');
+    function filterModules() {
+      const q = moduleSearch.value.toLowerCase();
+      const cat = moduleCat.value.toLowerCase();
+      document.querySelectorAll('#tableStdlib tbody tr').forEach(r => {
+        const name = r.children[0].innerText.toLowerCase();
+        const c = r.children[1].innerText.toLowerCase();
+        const uses = r.children[2].innerText.toLowerCase();
+        const ex = r.children[3].innerText.toLowerCase();
+        const match = (name+uses+ex).includes(q) && (!cat || c === cat);
+        r.style.display = match ? '' : 'none';
+      });
+    }
+    moduleSearch?.addEventListener('input', filterModules);
+    moduleCat?.addEventListener('change', filterModules);
+
+    function sortTable(tableId, keyIndex) {
+      const tbody = document.querySelector('#' + tableId + ' tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display !== 'none');
+      rows.sort((a,b) => a.children[keyIndex].innerText.localeCompare(b.children[keyIndex].innerText));
+      rows.forEach(r => tbody.appendChild(r));
+    }
+    moduleSort?.addEventListener('change', () => {
+      const val = moduleSort.value;
+      if (val === 'name') sortTable('tableStdlib', 0);
+      if (val === 'cat') sortTable('tableStdlib', 1);
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="container">
+    <div class="footgrid">
+      <div>
+        <h3>O projektu</h3>
+        <p class="muted">Neon cyberpunk encyklopedie Pythonu — od základů po pokročilé použití, s ukázkami a přehledy.</p>
+      </div>
+      <div>
+        <h3>Navigace</h3>
+        <ul>
+          <li><a href="#syntaxe">Syntaxe</a></li>
+          <li><a href="#stdlib">Standardní knihovna</a></li>
+          <li><a href="#concurrency">Souběh &amp; async</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Komunita</h3>
+        <ul>
+          <li><a href="#web">Web frameworky</a></li>
+          <li><a href="#datascience">Data science</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <p class="muted">Chceš přidat sekce, moduly, příklady? Dej vědět, rozšíříme encyklopedii.</p>
+      </div>
+    </div>
+    <div class="copyright">© PYTHON // Cyberpunk</div>
+  </footer>
+</body>
+</html>
